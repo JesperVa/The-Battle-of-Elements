@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1373972274966652}
+  m_IsPrefabParent: 1
+--- !u!1 &1373972274966652
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4581332100188478}
+  - component: {fileID: 114685513988645090}
+  m_Layer: 0
+  m_Name: ElementFactory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4581332100188478
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1373972274966652}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.39536375, y: -1.4941125, z: 17.625}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114685513988645090
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1373972274966652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f613fa826fc36a445897290b7fdb79a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_basicFire: {fileID: 114850545406010708, guid: d2ed87704f5af0d4fbd8e2f7efee1563,
+    type: 2}
+  m_basicWater: {fileID: 114887407409253978, guid: fcf9bf46f68c6a94c894aab818fb282d,
+    type: 2}
+  m_basicWind: {fileID: 114845065559900570, guid: 3b7665e6844b39449b04f95adb2d68e2,
+    type: 2}
+  m_basicEarth: {fileID: 114018359560442096, guid: d3a52da4bafd3b8488b3fd9a09955849,
+    type: 2}
+  m_waterFireElement: {fileID: 114681663048101912, guid: 8668df03ba82b5e4fb0adc4f8b0a24c1,
+    type: 2}
+  m_earthWindElement: {fileID: 114238711587280924, guid: 295d6227dce988242a9f55dff8b8407e,
+    type: 2}
+  m_windFireElement: {fileID: 114294467643879530, guid: ed385b20bddbdf84588b56b4bfcdf38c,
+    type: 2}
+  m_earthFireElement: {fileID: 114412531748879242, guid: 7d55aaccca6bffd46b51dfbeb18179ed,
+    type: 2}
+  m_earthWaterElement: {fileID: 114782317372352928, guid: 8ce57b6e9d40a854dbcf39e6bed900e7,
+    type: 2}
+  m_windWaterElement: {fileID: 114732799498000894, guid: 4e452e94318e89d4e83f4a863c4275d3,
+    type: 2}

@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: c7f87f14eff3c3840a617401cb2e909b
+timeCreated: 1508152371
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Tribal Dragons Tattoo Designs
+  fontNames:
+  - Tribal Dragons Tattoo Designs
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
