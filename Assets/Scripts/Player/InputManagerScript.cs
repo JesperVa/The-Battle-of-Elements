@@ -9,9 +9,7 @@ public class InputManagerScript : MonoBehaviour
 	private const float MomentumIncreaseInAir = 0.1f;
 	private const float MaxMomentum = 1f;
     private const float MaxMomentumInAir = 0.3f;
-
-
-
+    
     private float m_timeSinceLastShot;
 
     [SerializeField]
@@ -42,6 +40,7 @@ public class InputManagerScript : MonoBehaviour
         m_playerScript = GetComponent<PlayerScript>();
         m_playerScript.SetDirection(Globals.Direction.Right);
 
+        
         m_inputs = Vector2.zero;
 		
 
@@ -54,11 +53,18 @@ public class InputManagerScript : MonoBehaviour
 	{
         m_timeSinceLastShot += Time.deltaTime;
 
-		HandleInput ();
+        //m_characterAnimator.SetBool("shooting", true);
+
+        HandleInput ();
 		HandleDirection ();
 		HandleMovement ();
         Flip();
-	}
+
+        
+        //m_characterYmovement = Input.GetAxis("Vertical");
+
+          
+    }
 
 	void HandleInput ()
 	{
@@ -72,10 +78,12 @@ public class InputManagerScript : MonoBehaviour
 		{
 			m_inputs = Vector2.zero;
 			m_inputs.x = Input.GetAxis ("Horizontal" + m_thisControllerName + m_playerNumber.ToString ());
+            m_inputs.y = Input.GetAxis("Vertical" + m_thisControllerName + m_playerNumber.ToString());
 
-			//Fix for issue with Jespers' controller
-			//TODO: Remove
-			if (m_inputs.x < 0.5 && m_inputs.x > -0.5)
+           
+            //Fix for issue with Jespers' controller
+            //TODO: Remove
+            if (m_inputs.x < 0.5 && m_inputs.x > -0.5)
 			{
 				m_inputs = Vector2.zero;
 			}
@@ -92,14 +100,15 @@ public class InputManagerScript : MonoBehaviour
 
 			if (Input.GetButtonDown ("Fire1" + m_thisControllerName + m_playerNumber.ToString ()))
 			{
+
                 if (m_timeBetweenShots < m_timeSinceLastShot)
                 {
                     m_timeSinceLastShot = 0;
                     m_playerScript.ShootCurrentElement();
                 }
-			}
+			}        
 
-			if (Input.GetButtonDown ("Fire2" + m_thisControllerName + m_playerNumber.ToString ()))
+            if (Input.GetButtonDown ("Fire2" + m_thisControllerName + m_playerNumber.ToString ()))
 			{
 				m_playerScript.ChangeElement ();
 			}
@@ -112,12 +121,12 @@ public class InputManagerScript : MonoBehaviour
 			if (Input.GetKey(KeyCode.A))
 			{
 				m_inputs.x = -1;
-				//Debug.Log (m_inputs.x);
-			}
+                //Debug.Log (m_inputs.x);
+            }
 			if (Input.GetKey(KeyCode.D))
 			{
 				m_inputs.x = 1;
-			}
+            }
 
 			if (Input.GetKeyDown(KeyCode.F))
 			{
@@ -204,7 +213,11 @@ public class InputManagerScript : MonoBehaviour
         //m_playerScript.transform.Translate(movement * Time.deltaTime);
 
         m_playerScript.Move(movement * Time.deltaTime);
-	}
+
+
+
+       
+    }
 
     private void Flip()
     {

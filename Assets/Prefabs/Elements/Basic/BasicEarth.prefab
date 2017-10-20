@@ -128,10 +128,11 @@ AudioSource:
   m_GameObject: {fileID: 1847827583037892}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243522165906388634, guid: e5187c422f09bf649bb6dc747e98dc1c,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 733887c36b91afe4f9ae3d4834d49f41, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -181,13 +182,13 @@ AudioSource:
     m_Curve:
     - serializedVersion: 2
       time: 0
-      value: 0
+      value: 0.1388889
       inSlope: 0
       outSlope: 0
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -211,11 +212,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eebd30abee1c63042ae41512df9f9243, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_speed: 12
   m_knockbackDamage: 7
+  m_speed: 12
+  hasCombined: 0
+  m_elementType: 3
   m_elementFactory: {fileID: 114685513988645090, guid: 40d262b014f5da146bc892f337bcffa4,
     type: 2}
-  m_elementType: 3
 --- !u!198 &198183752362446552
 ParticleSystem:
   m_ObjectHideFlags: 1

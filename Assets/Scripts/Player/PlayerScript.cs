@@ -43,6 +43,11 @@ public class PlayerScript : MonoBehaviour
 
     public Transform[] m_groundPoints;
 
+    public AudioSource m_getHitVoice;
+    public AudioSource m_knockedOutVoice;
+    public AudioSource m_looserVoice;
+    public AudioSource m_tauntVoice;
+
     #region Serialized variables
     [SerializeField]
     private SpriteRenderer m_elementIndicator;
@@ -71,6 +76,9 @@ public class PlayerScript : MonoBehaviour
 
     private Globals.Element m_currentElement;
 
+    private Animator m_characterAnimator;
+    
+
     [SerializeField]
     private const float m_minKnockbackValue = 5; //(K) constant knockback, set pretty low
     private float m_increasingKnockbackValue = 0; //X is a knockback value every player has that increases depending on their damage taken
@@ -82,12 +90,21 @@ public class PlayerScript : MonoBehaviour
         m_rigidbody.freezeRotation = true;
         m_currentElement = Globals.Element.Earth;
 
+        m_characterAnimator = GetComponent<Animator>();
+
+
+
         m_isDead = false;
         m_elementIndicator.color = Globals.BrownColor;
     }
 
     void Update()
     {
+       
+        m_characterAnimator.SetFloat("speedX", m_rigidbody.velocity.x);
+        m_characterAnimator.SetFloat("speedY", m_rigidbody.velocity.y);
+
+
         if (IsOnGround())
             m_doubleJumped = false;
 
@@ -100,6 +117,9 @@ public class PlayerScript : MonoBehaviour
         {
             m_rigidbody.velocity += Vector2.up * Physics2D.gravity.y * (m_fallMultiplier - 1) * Time.deltaTime;
         }
+
+
+        
     }
     #endregion
 
@@ -131,6 +151,11 @@ public class PlayerScript : MonoBehaviour
     {
         //This can prob be done better
         BasicElementScript element = m_elementFactory.BasicEarth; //Gives errors if not set to a value
+
+        m_characterAnimator.SetTrigger("shooting");
+
+        m_tauntVoice.Play();
+
         switch (m_currentElement)
         {
             case Globals.Element.Earth:
@@ -165,6 +190,7 @@ public class PlayerScript : MonoBehaviour
         {
             tempGO.SetDirection(Vector2.right);
         }
+        
     }
 
     public void ChangeElement()
@@ -220,8 +246,11 @@ public class PlayerScript : MonoBehaviour
 
     public void TakeDamage(float aDmgTaken, bool aKnockedFromRight)
     {
+        m_getHitVoice.Play();  //verkar inte funka här
+
 	    Knockback += aDmgTaken;
         m_rigidbody.AddForce(transform.up * m_minKnockbackValue, ForceMode2D.Impulse);
+
         if (aKnockedFromRight)
         {
             m_rigidbody.AddForce(-transform.right * (m_minKnockbackValue + CalculateKnockBack()), ForceMode2D.Impulse);
@@ -236,6 +265,7 @@ public class PlayerScript : MonoBehaviour
     #region Private methods
     private void HandleDeath()
     {
+        m_knockedOutVoice.Play();
         deathTime += Time.deltaTime;
 		Knockback = 0;
     }
