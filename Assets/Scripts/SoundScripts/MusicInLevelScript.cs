@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Scen1Music : MonoBehaviour
+public class MusicInLevelScript : MonoBehaviour
 {
     public AudioSource m_intro;
     public AudioSource m_loop;
@@ -24,10 +24,10 @@ public class Scen1Music : MonoBehaviour
             startedLoop = true;
         }
     }
-    
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    void Update()
     {
-        
-	}
+
+    }
 }

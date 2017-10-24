@@ -45,12 +45,11 @@ public class GameMasterScript : SingletonScript<GameMasterScript>
         m_CurrentLives.Add(Globals.Team.Blue, m_TeamLives);
         m_CurrentLives.Add(Globals.Team.Red, m_TeamLives);
 
-
         //TODO:Makes sure that Players and Elements doesn't have collision
         //This will be removed and edited inside OnCollision2D for PlayerScript/ElementScript once development has gotten further
         //Physics2D.IgnoreLayerCollision (10, 9, true);
         //Ignore collision between Platforms and Elements
-        Physics2D.IgnoreLayerCollision(8, 9, true);
+        //Physics2D.IgnoreLayerCollision(8, 9, true);
 
 
     }

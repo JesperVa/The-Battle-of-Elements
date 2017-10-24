@@ -51,14 +51,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc9d9315dd2d24a4e8fe64f09fb56c85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_testSoundName: 
   m_Players:
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   m_DeathPositions:
-  - {fileID: 4149224224912792, guid: 717493e5e20336349b311b6950805310, type: 2}
-  - {fileID: 4366712867307832, guid: 717493e5e20336349b311b6950805310, type: 2}
-  - {fileID: 4956166123490032, guid: 717493e5e20336349b311b6950805310, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   m_RespawnPositions:
   - {fileID: 0}
   m_RespawnTime: 2

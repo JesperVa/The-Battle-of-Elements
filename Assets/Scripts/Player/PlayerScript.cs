@@ -246,6 +246,7 @@ public class PlayerScript : MonoBehaviour
 
     public void TakeDamage(float aDmgTaken, bool aKnockedFromRight)
     {
+        Debug.Log("We took damage");
         m_getHitVoice.Play();  //verkar inte funka här
 
 	    Knockback += aDmgTaken;
@@ -267,6 +268,7 @@ public class PlayerScript : MonoBehaviour
     {
         m_knockedOutVoice.Play();
         deathTime += Time.deltaTime;
+        m_rigidbody.velocity = Vector2.zero;
 		Knockback = 0;
     }
 

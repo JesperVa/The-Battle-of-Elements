@@ -30,9 +30,6 @@ public class InputManagerScript : MonoBehaviour
 
 	private PlayerScript m_playerScript;
 
-	[SerializeField]
-	public ElementFactoryScript m_elementFactory;
-
 	// Use this for initialization
 	void Start () 
 	{
@@ -68,17 +65,11 @@ public class InputManagerScript : MonoBehaviour
 
 	void HandleInput ()
 	{
-        //TODO: REMOVE
-        //Hotfix to remove error messages in console
-        if (m_playerNumber == Globals.PlayerNumber.Two)
-        {
-            m_keyboard = true;
-        }
         if (!m_keyboard)
 		{
 			m_inputs = Vector2.zero;
 			m_inputs.x = Input.GetAxis ("Horizontal" + m_thisControllerName + m_playerNumber.ToString ());
-            m_inputs.y = Input.GetAxis("Vertical" + m_thisControllerName + m_playerNumber.ToString());
+            //m_inputs.y = Input.GetAxis("Vertical" + m_thisControllerName + m_playerNumber.ToString());
 
            
             //Fix for issue with Jespers' controller
