@@ -122,6 +122,7 @@ public class GameMasterScript : SingletonScript<GameMasterScript>
                 if (pPos.x > m_DeathPositions[0].position.x || pPos.x < m_DeathPositions[1].position.x || pPos.y < m_DeathPositions[2].position.y)
                 {
                     m_Camera.RemoveTarget(player.transform);
+                    player.PlayKnockedOutVoice();
                     player.isDead = true;
 
                     //Gives errors if I try to do this in a cleaner way :(

@@ -46,7 +46,7 @@ public class PlayerScript : MonoBehaviour
     public AudioSource m_getHitVoice;
     public AudioSource m_knockedOutVoice;
     public AudioSource m_looserVoice;
-    public AudioSource m_tauntVoice;
+    public AudioSource[] m_tauntVoice;
 
     #region Serialized variables
     [SerializeField]
@@ -150,9 +150,11 @@ public class PlayerScript : MonoBehaviour
     }
 
     //TODO: Add call for taunt in inputscript and bind buttons in inputmanager(Unity)
-    public void Taunt()
+    public void PlayTauntVoice()
     {
-        m_tauntVoice.Play();
+        //int value = (int)(Random.value * m_tauntVoice.Length);
+        int value = Random.Range(0, m_tauntVoice.Length);
+        m_tauntVoice[value].Play();
     }
 
     public void ShootCurrentElement()
@@ -263,12 +265,16 @@ public class PlayerScript : MonoBehaviour
             m_rigidbody.AddForce(transform.right * (m_minKnockbackValue + CalculateKnockBack()), ForceMode2D.Impulse);
         }
     }
+
+    public void PlayKnockedOutVoice()
+    {
+        m_knockedOutVoice.Play();
+    }
     #endregion
 
     #region Private methods
     private void HandleDeath()
     {
-        m_knockedOutVoice.Play();
         deathTime += Time.deltaTime;
         m_rigidbody.velocity = Vector2.zero;
 		Knockback = 0;
