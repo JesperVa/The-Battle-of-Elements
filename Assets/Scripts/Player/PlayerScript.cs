@@ -63,6 +63,8 @@ public class PlayerScript : MonoBehaviour
     private ElementFactoryScript m_elementFactory;
     [SerializeField]
     private Globals.Team m_team;
+    [SerializeField]
+    private Transform m_shootingTransform;
     #endregion
 
     private bool m_isDead;
@@ -147,14 +149,18 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
+    //TODO: Add call for taunt in inputscript and bind buttons in inputmanager(Unity)
+    public void Taunt()
+    {
+        m_tauntVoice.Play();
+    }
+
     public void ShootCurrentElement()
     {
         //This can prob be done better
         BasicElementScript element = m_elementFactory.BasicEarth; //Gives errors if not set to a value
 
         m_characterAnimator.SetTrigger("shooting");
-
-        m_tauntVoice.Play();
 
         switch (m_currentElement)
         {
@@ -171,9 +177,7 @@ public class PlayerScript : MonoBehaviour
                 element = m_elementFactory.BasicWater;
                 break;
         }
-
-        Vector3 spawnPos = new Vector3(m_rigidbody.position.x, m_rigidbody.position.y, 0);
-        BasicElementScript tempGO = Instantiate(element, spawnPos, new Quaternion()) as BasicElementScript;
+        BasicElementScript tempGO = Instantiate(element, m_shootingTransform.position, new Quaternion()) as BasicElementScript;
         tempGO.SetOriginTeam(GetTeam());
 
         if (m_direction == Globals.Direction.Right)
@@ -190,7 +194,6 @@ public class PlayerScript : MonoBehaviour
         {
             tempGO.SetDirection(Vector2.right);
         }
-        
     }
 
     public void ChangeElement()
@@ -246,8 +249,7 @@ public class PlayerScript : MonoBehaviour
 
     public void TakeDamage(float aDmgTaken, bool aKnockedFromRight)
     {
-        Debug.Log("We took damage");
-        m_getHitVoice.Play();  //verkar inte funka här
+        m_getHitVoice.Play();  
 
 	    Knockback += aDmgTaken;
         m_rigidbody.AddForce(transform.up * m_minKnockbackValue, ForceMode2D.Impulse);

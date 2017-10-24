@@ -11,6 +11,21 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1775540481249244}
   m_IsPrefabParent: 1
+--- !u!1 &1274290668895214
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4200358576186884}
+  m_Layer: 8
+  m_Name: ShootingPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1355197292899284
 GameObject:
   m_ObjectHideFlags: 0
@@ -20,7 +35,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4488587666486302}
   - component: {fileID: 212858864640888308}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: ElementIndicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35,7 +50,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4633806364044360}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: GroundPointLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50,7 +65,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4251235044620056}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: GroundPointRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65,7 +80,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4619008474951018}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: GroundPointMiddle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,13 +105,26 @@ GameObject:
   - component: {fileID: 82330098017135640}
   - component: {fileID: 82507381182045222}
   - component: {fileID: 95029733465789682}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: PlayerFour
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &4200358576186884
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1274290668895214}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.5, y: -0.38, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4887433845207654}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4251235044620056
 Transform:
   m_ObjectHideFlags: 1
@@ -156,13 +184,14 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1775540481249244}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.245783, y: -1.54, z: -10}
+  m_LocalPosition: {x: 10.245783, y: -2.570975, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4251235044620056}
   - {fileID: 4633806364044360}
   - {fileID: 4619008474951018}
   - {fileID: 4488587666486302}
+  - {fileID: 4200358576186884}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -577,10 +606,11 @@ MonoBehaviour:
   m_groundRadius: 0.1
   m_whatIsGround:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 512
   m_elementFactory: {fileID: 114685513988645090, guid: 40d262b014f5da146bc892f337bcffa4,
     type: 2}
   m_team: 1
+  m_shootingTransform: {fileID: 4200358576186884}
   m_doubleJumped: 0
   m_fallMultiplier: 4.5
 --- !u!114 &114867143723977454
@@ -598,8 +628,6 @@ MonoBehaviour:
   m_facingRight: 1
   m_keyboard: 0
   m_playerNumber: 3
-  m_elementFactory: {fileID: 114685513988645090, guid: 40d262b014f5da146bc892f337bcffa4,
-    type: 2}
 --- !u!212 &212385524176797292
 SpriteRenderer:
   m_ObjectHideFlags: 1
