@@ -65,6 +65,7 @@ public class InputManagerScript : MonoBehaviour
 
 	void HandleInput ()
 	{
+
         if (!m_keyboard)
 		{
 			m_inputs = Vector2.zero;
@@ -111,6 +112,7 @@ public class InputManagerScript : MonoBehaviour
 		}
 		else
 		{
+			//Debug.Log ("Keyboard test");
 			m_inputs = Vector2.zero;
 			//Honestly this is a pretty bad solution inside a unity script
 			//It will only be here for the first preview to José
