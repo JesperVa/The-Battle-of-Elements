@@ -79,10 +79,10 @@ public class InputManagerScript : MonoBehaviour
 				m_inputs = Vector2.zero;
 			}
 
-            if(Input.GetButtonDown("Fire3" + m_thisControllerName + m_playerNumber.ToString()))
-            {
-                m_playerScript.PlayTauntVoice();
-            }
+           // if(Input.GetButtonDown("Fire3" + m_thisControllerName + m_playerNumber.ToString()))
+            //{
+              //  m_playerScript.PlayTauntVoice();
+            //}
 
 			if (Input.GetButtonDown ("Jump" + m_thisControllerName + m_playerNumber.ToString ()) && m_playerScript.IsOnGround ())
 			{

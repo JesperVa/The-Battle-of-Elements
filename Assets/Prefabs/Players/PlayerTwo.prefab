@@ -856,7 +856,7 @@ MonoBehaviour:
   m_groundRadius: 0.1
   m_whatIsGround:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 768
   m_elementFactory: {fileID: 114685513988645090, guid: 40d262b014f5da146bc892f337bcffa4,
     type: 2}
   m_team: 0
