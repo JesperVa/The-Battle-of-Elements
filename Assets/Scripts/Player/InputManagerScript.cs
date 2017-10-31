@@ -66,11 +66,16 @@ public class InputManagerScript : MonoBehaviour
 	void HandleInput ()
 	{
 
+        if(m_playerNumber != Globals.PlayerNumber.One)
+        {
+            m_keyboard = true;
+        }
+
         if (!m_keyboard)
 		{
 			m_inputs = Vector2.zero;
 			m_inputs.x = Input.GetAxis ("Horizontal" + m_thisControllerName + m_playerNumber.ToString ());
-            //m_inputs.y = Input.GetAxis("Vertical" + m_thisControllerName + m_playerNumber.ToString());
+            m_inputs.y = Input.GetAxis("Vertical" + m_thisControllerName + m_playerNumber.ToString());
 
            
             //Fix for issue with Jespers' controller
@@ -200,8 +205,17 @@ public class InputManagerScript : MonoBehaviour
             }
         }
 
+        //if(m_inputs.y > 0 && m_inputs.x < 0.7f && m_inputs.x > -0.7f)
+        //{
+        //    m_playerScript.SetDirection(Globals.Direction.Up);
+        //}
+        //if (m_inputs.y < 0 && m_inputs.x < 0.7f && m_inputs.x > -0.7f)
+        //{
+        //    m_playerScript.SetDirection(Globals.Direction.Up);
+        //}
 
-	}
+
+    }
 
 	public void HandleMovement()
 	{

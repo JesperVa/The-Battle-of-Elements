@@ -735,6 +735,7 @@ GameObject:
   - component: {fileID: 190646045}
   - component: {fileID: 190646047}
   - component: {fileID: 190646046}
+  - component: {fileID: 190646048}
   m_Layer: 5
   m_Name: txtKnockback
   m_TagString: Untagged
@@ -802,6 +803,18 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 190646044}
+--- !u!114 &190646048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 190646044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c201f71d17a2f6548880dc05fac23ab9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_player: {fileID: 1864435666}
 --- !u!1 &206159763
 GameObject:
   m_ObjectHideFlags: 0
@@ -1357,6 +1370,7 @@ GameObject:
   - component: {fileID: 322828663}
   - component: {fileID: 322828665}
   - component: {fileID: 322828664}
+  - component: {fileID: 322828666}
   m_Layer: 5
   m_Name: txtTeamLives
   m_TagString: Untagged
@@ -1424,6 +1438,18 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 322828662}
+--- !u!114 &322828666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 322828662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63df5c8159100104881f219ade300150, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_player: {fileID: 1864435666}
 --- !u!1001 &323976521
 Prefab:
   m_ObjectHideFlags: 0
@@ -1864,7 +1890,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63df5c8159100104881f219ade300150, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_player: {fileID: 0}
+  m_player: {fileID: 991841035}
 --- !u!114 &429942852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2011,6 +2037,7 @@ GameObject:
   - component: {fileID: 580743606}
   - component: {fileID: 580743608}
   - component: {fileID: 580743607}
+  - component: {fileID: 580743609}
   m_Layer: 5
   m_Name: txtKnockback
   m_TagString: Untagged
@@ -2078,6 +2105,18 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 580743605}
+--- !u!114 &580743609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 580743605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c201f71d17a2f6548880dc05fac23ab9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_player: {fileID: 857645995}
 --- !u!1 &599107370
 GameObject:
   m_ObjectHideFlags: 0
@@ -2360,7 +2399,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c201f71d17a2f6548880dc05fac23ab9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_player: {fileID: 0}
+  m_player: {fileID: 991841035}
 --- !u!114 &646773477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3065,7 +3104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63df5c8159100104881f219ade300150, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_player: {fileID: 0}
+  m_player: {fileID: 646149440}
 --- !u!114 &797150194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3774,6 +3813,7 @@ GameObject:
   - component: {fileID: 1278737782}
   - component: {fileID: 1278737784}
   - component: {fileID: 1278737783}
+  - component: {fileID: 1278737785}
   m_Layer: 5
   m_Name: txtTeamLives
   m_TagString: Untagged
@@ -3841,6 +3881,18 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1278737781}
+--- !u!114 &1278737785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1278737781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63df5c8159100104881f219ade300150, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_player: {fileID: 857645995}
 --- !u!4 &1291125309 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4887433845207654, guid: da166d98c78493e429eaad44fb5785b6,
@@ -5147,7 +5199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c201f71d17a2f6548880dc05fac23ab9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_player: {fileID: 0}
+  m_player: {fileID: 646149440}
 --- !u!114 &1624305120
 MonoBehaviour:
   m_ObjectHideFlags: 0
