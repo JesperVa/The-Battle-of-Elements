@@ -192,9 +192,13 @@ public class PlayerScript : MonoBehaviour
             tempGO.transform.localScale = new Vector3(tempGO.transform.localScale.x *-1, 
                                                     tempGO.transform.localScale.y, tempGO.transform.localScale.z);
         }
-        else //Just to make sure it works from the get-go
+        else if(m_direction == Globals.Direction.Up)//Just to make sure it works from the get-go
         {
-            tempGO.SetDirection(Vector2.right);
+            tempGO.SetDirection(Vector2.up);
+        }
+        else if (m_direction == Globals.Direction.Down)//Just to make sure it works from the get-go
+        {
+            tempGO.SetDirection(Vector2.down);
         }
     }
 
