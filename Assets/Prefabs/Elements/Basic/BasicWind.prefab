@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 50679444877752662}
   - component: {fileID: 114845065559900570}
   - component: {fileID: 82670943847795062}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: BasicWind
   m_TagString: BasicElement
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4852986354212668}
   - component: {fileID: 108295092498425610}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Point light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 4315162213922862}
   - component: {fileID: 198824315185064958}
   - component: {fileID: 199093062287940512}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
