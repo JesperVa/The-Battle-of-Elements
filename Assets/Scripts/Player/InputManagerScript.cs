@@ -68,10 +68,10 @@ public class InputManagerScript : MonoBehaviour
 	void HandleInput ()
 	{
 
-        if(m_playerNumber != Globals.PlayerNumber.One)
-        {
-            m_keyboard = true;
-        }
+        //if(m_playerNumber != Globals.PlayerNumber.One)
+        //{
+        //    m_keyboard = true;
+        //}
 
         if (!m_keyboard)
 		{
