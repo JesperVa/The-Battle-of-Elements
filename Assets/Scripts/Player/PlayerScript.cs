@@ -48,6 +48,7 @@ public class PlayerScript : MonoBehaviour
     public AudioSource m_looserVoice;
     public AudioSource[] m_tauntVoice;
 
+
     #region Serialized variables
     [SerializeField]
     private SpriteRenderer m_elementIndicator;
@@ -274,7 +275,7 @@ public class PlayerScript : MonoBehaviour
 
     #region Private methods
     private void HandleDeath()
-    {
+    {      
         deathTime += Time.deltaTime;
         m_rigidbody.velocity = Vector2.zero;
 		Knockback = 0;

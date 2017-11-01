@@ -50,7 +50,7 @@ ParticleSystem:
   serializedVersion: 5
   lengthInSec: 2.41
   simulationSpeed: 1
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -100,7 +100,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -47178691
+  randomSeed: 1013232470
   InitialModule:
     serializedVersion: 3
     enabled: 1

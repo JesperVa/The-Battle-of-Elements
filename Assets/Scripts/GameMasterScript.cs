@@ -5,8 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class GameMasterScript : SingletonScript<GameMasterScript>
 {
-   // private SoundManagerScript m_soundManager;
-  //  public string m_testSoundName;
+    // private SoundManagerScript m_soundManager;
+    //  public string m_testSoundName;
+
+    public ParticleSystem m_respawnParticles;
 
     [SerializeField]
     private List<PlayerScript> m_Players; //PlayerNumbers are based on Array number
@@ -73,6 +75,7 @@ public class GameMasterScript : SingletonScript<GameMasterScript>
                 int randValue = (int)(Random.value * m_RespawnPositions.Length - 1);
                 player.transform.position = m_RespawnPositions[randValue].position;
                 m_Camera.AddTarget(player.transform);
+                m_respawnParticles.Play(player.transform);
             }
         }
     }
