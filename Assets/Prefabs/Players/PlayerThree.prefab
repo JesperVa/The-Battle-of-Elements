@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4751815691360740}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: GroundPointLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35,7 +35,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4766642537153124}
   - component: {fileID: 212391304808768082}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: ElementIndicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -63,7 +63,7 @@ GameObject:
   - component: {fileID: 82714409747552540}
   - component: {fileID: 82869657945662246}
   - component: {fileID: 82449289629900936}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: PlayerThree
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -78,7 +78,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4275516626073534}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: GroundPointRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4151736167627890}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: ShootingPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4780227929650278}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: GroundPointMiddle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

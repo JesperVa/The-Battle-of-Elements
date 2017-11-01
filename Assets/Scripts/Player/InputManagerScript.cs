@@ -9,6 +9,8 @@ public class InputManagerScript : MonoBehaviour
 	private const float MomentumIncreaseInAir = 0.1f;
 	private const float MaxMomentum = 1f;
     private const float MaxMomentumInAir = 0.3f;
+
+    private const float ControllerOffset = 0.4f;
     
     private float m_timeSinceLastShot;
 
@@ -66,18 +68,23 @@ public class InputManagerScript : MonoBehaviour
 	void HandleInput ()
 	{
 
+        //if(m_playerNumber != Globals.PlayerNumber.One)
+        //{
+        //    m_keyboard = true;
+        //}
+
         if (!m_keyboard)
 		{
 			m_inputs = Vector2.zero;
 			m_inputs.x = Input.GetAxis ("Horizontal" + m_thisControllerName + m_playerNumber.ToString ());
-            //m_inputs.y = Input.GetAxis("Vertical" + m_thisControllerName + m_playerNumber.ToString());
+            m_inputs.y = Input.GetAxis("Vertical" + m_thisControllerName + m_playerNumber.ToString());
 
            
             //Fix for issue with Jespers' controller
             //TODO: Remove
             if (m_inputs.x < 0.5 && m_inputs.x > -0.5)
 			{
-				m_inputs = Vector2.zero;
+				m_inputs.x = 0;
 			}
 
            // if(Input.GetButtonDown("Fire3" + m_thisControllerName + m_playerNumber.ToString()))
@@ -199,15 +206,26 @@ public class InputManagerScript : MonoBehaviour
                 m_momentum = MaxMomentumInAir * -1;
             }
         }
+        
+
+        if (m_inputs.y > ControllerOffset)
+        {
+            m_playerScript.SetDirection(Globals.Direction.Up);
+        }
+        if (m_inputs.y < -1 * ControllerOffset)
+        {
+            m_playerScript.SetDirection(Globals.Direction.Down);
+        }
 
 
-	}
+    }
 
 	public void HandleMovement()
 	{
         //Vector2 movement = new Vector2(m_inputs.x * m_playerScript.m_speed, m_inputs.y * m_playerScript.m_speed);
         //m_inputs.x = 1;
-		Vector2 movement = new Vector2(m_momentum * m_playerScript.m_speed, m_inputs.y * m_playerScript.m_speed);
+        //Vector2 movement = new Vector2(m_momentum * m_playerScript.m_speed, m_inputs.y * m_playerScript.m_speed);
+        Vector2 movement = new Vector2(m_momentum * m_playerScript.m_speed, 0);
         //m_playerScript.transform.Translate(movement * Time.deltaTime);
 
         m_playerScript.Move(movement * Time.deltaTime);
