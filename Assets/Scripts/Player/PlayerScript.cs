@@ -256,6 +256,7 @@ public class PlayerScript : MonoBehaviour
 
     public void TakeDamage(float aDmgTaken, bool aKnockedFromRight)
     {
+        m_characterAnimator.SetTrigger("knockbacked");
         m_getHitVoice.Play();  
 
 	    Knockback += aDmgTaken;
