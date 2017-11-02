@@ -20,13 +20,14 @@ public class GameMasterScript : SingletonScript<GameMasterScript>
     private int m_RespawnTime;
     [SerializeField]
     private CameraControl m_Camera;
-    [SerializeField]
+    [SerializeField] 
     private int m_TeamLives;
     private Hashtable m_CurrentLives;
 
     private bool m_gameHasEnded = false;
 
     private string m_losingTeam = "";
+    private int m_randRespawnValue;
     
     protected GameMasterScript()
     {
@@ -71,11 +72,23 @@ public class GameMasterScript : SingletonScript<GameMasterScript>
         {
             if ((int)m_CurrentLives[player.GetTeam()] > 0 && player.isDead && player.deathTime > m_RespawnTime)
             {
+                
+                m_randRespawnValue = (int)(Random.value * m_RespawnPositions.Length - 1);              
+                m_respawnParticles.Play(m_RespawnPositions[m_randRespawnValue].transform);
+                Invoke("RespawnPlayer", 2.3f);
+            }
+        }
+    }
+
+    private void RespawnPlayer()
+    {
+        foreach (PlayerScript player in m_Players)
+        {
+            if ((int)m_CurrentLives[player.GetTeam()] > 0 && player.isDead && player.deathTime > m_RespawnTime)
+            {
                 player.isDead = false;
-                int randValue = (int)(Random.value * m_RespawnPositions.Length - 1);
-                player.transform.position = m_RespawnPositions[randValue].position;
+                player.transform.position = m_RespawnPositions[m_randRespawnValue].position;
                 m_Camera.AddTarget(player.transform);
-                m_respawnParticles.Play(player.transform);
             }
         }
     }
