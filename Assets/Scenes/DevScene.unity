@@ -5761,6 +5761,16 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4839999818557658, guid: ddea703b02f56ad4894e822170a9a939, type: 2}
       propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198327885709621032, guid: ddea703b02f56ad4894e822170a9a939,
+        type: 2}
+      propertyPath: randomSeed
+      value: -211824339
+      objectReference: {fileID: 0}
+    - target: {fileID: 198327885709621032, guid: ddea703b02f56ad4894e822170a9a939,
+        type: 2}
+      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -7084,7 +7094,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4839999818557658, guid: ddea703b02f56ad4894e822170a9a939, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1283881981182300, guid: ddea703b02f56ad4894e822170a9a939, type: 2}
       propertyPath: m_Name

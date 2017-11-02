@@ -48,7 +48,7 @@ public class PlayerScript : MonoBehaviour
     public AudioSource m_looserVoice;
     public AudioSource[] m_tauntVoice;
 
-
+    public ParticleSystem m_healthPickupEffect;
     #region Serialized variables
     [SerializeField]
     private SpriteRenderer m_elementIndicator;
@@ -289,6 +289,8 @@ public class PlayerScript : MonoBehaviour
     {
         if(aCollider.tag == "Health")
         {
+            m_healthPickupEffect.Play(m_rigidbody.transform);
+
             if (m_increasingKnockbackValue < 10)
             {
                 m_increasingKnockbackValue = 0;

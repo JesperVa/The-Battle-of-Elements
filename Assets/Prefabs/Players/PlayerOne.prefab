@@ -850,6 +850,8 @@ MonoBehaviour:
   - {fileID: 82698936294532852}
   - {fileID: 82603354239609666}
   - {fileID: 82821761295791996}
+  m_healthPickupEffect: {fileID: 198598040915960298, guid: c813b9f823ebaeb42a9ec7f73714c3ec,
+    type: 2}
   m_elementIndicator: {fileID: 212094852607300394}
   m_speed: 20
   m_jumpSpeed: 6
