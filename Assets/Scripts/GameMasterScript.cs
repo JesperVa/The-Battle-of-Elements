@@ -87,10 +87,10 @@ public class GameMasterScript : SingletonScript<GameMasterScript>
         {
             if ((int)m_CurrentLives[player.GetTeam()] > 0 && player.isDead && player.deathTime > m_RespawnTime)
             {
-                
-                player.isDead = false;
                 player.transform.position = m_RespawnPositions[m_randRespawnValue].position;
                 m_Camera.AddTarget(player.transform);
+                player.isDead = false;
+                
             }
         }
     }

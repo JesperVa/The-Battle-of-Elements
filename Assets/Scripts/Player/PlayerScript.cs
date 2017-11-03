@@ -94,6 +94,7 @@ public class PlayerScript : MonoBehaviour
         m_currentElement = Globals.Element.Earth;
 
         m_characterAnimator = GetComponent<Animator>();
+           
 
 
 
@@ -291,7 +292,6 @@ public class PlayerScript : MonoBehaviour
         if(aCollider.tag == "Health")
         {
             m_healthPickupEffect.Play(m_rigidbody.transform);
-
             if (m_increasingKnockbackValue < 10)
             {
                 m_increasingKnockbackValue = 0;
