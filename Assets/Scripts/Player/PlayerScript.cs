@@ -318,7 +318,7 @@ public class PlayerScript : MonoBehaviour
     {
         if (aCollision.transform.tag == "MovingPlatform")
         {
-            transform.parent = aCollision.transform.parent;
+            transform.parent = aCollision.transform.parent.parent;
         }
     }
 
