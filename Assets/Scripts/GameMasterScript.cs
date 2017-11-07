@@ -23,6 +23,7 @@ public class GameMasterScript : SingletonScript<GameMasterScript>
     [SerializeField] 
     private int m_TeamLives;
     private Hashtable m_CurrentLives;
+    private Queue<Transform> m_TransformQueue;
 
     private bool m_gameHasEnded = false;
 
@@ -43,7 +44,7 @@ public class GameMasterScript : SingletonScript<GameMasterScript>
         #endregion
 
 
-
+        m_TransformQueue = new Queue<Transform>();
         m_CurrentLives = new Hashtable();
         m_CurrentLives.Add(Globals.Team.Blue, m_TeamLives);
         m_CurrentLives.Add(Globals.Team.Red, m_TeamLives);
@@ -74,7 +75,12 @@ public class GameMasterScript : SingletonScript<GameMasterScript>
             {
                 m_randRespawnValue = (int)(Random.value * m_RespawnPositions.Length - 1);
                 if (!m_respawnParticles.isPlaying)
-                m_respawnParticles.Play(m_RespawnPositions[m_randRespawnValue].transform);
+                {
+                    m_respawnParticles.Play(m_RespawnPositions[m_randRespawnValue].transform);
+                    m_Camera.AddTarget(m_RespawnPositions[m_randRespawnValue].transform);
+                }
+
+                //m_Camera.AddTarget(m_RespawnPositions[m_randRespawnValue].transform);
 
                 Invoke("RespawnPlayer", 1.2f);
             }
@@ -88,9 +94,11 @@ public class GameMasterScript : SingletonScript<GameMasterScript>
             if ((int)m_CurrentLives[player.GetTeam()] > 0 && player.isDead && player.deathTime > m_RespawnTime)
             {
                 player.transform.position = m_RespawnPositions[m_randRespawnValue].position;
+                m_Camera.RemoveTarget(m_RespawnPositions[m_randRespawnValue].transform);
                 m_Camera.AddTarget(player.transform);
+                //Debug.Log(m_Camera.Targets());
                 player.isDead = false;
-                
+
             }
         }
     }

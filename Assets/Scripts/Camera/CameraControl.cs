@@ -110,4 +110,9 @@ public class CameraControl : MonoBehaviour
 	{
 		m_targets.Add (aTargetTransform);
 	}
+
+    public int Targets()
+    {
+        return m_targets.Count;
+    }
 }
