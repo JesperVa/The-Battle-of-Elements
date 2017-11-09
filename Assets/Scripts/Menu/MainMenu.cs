@@ -100,7 +100,18 @@ public class MainMenu : MonoBehaviour
     {
        
     }
+    public void SetMaterVolume(float volume)
+    {
 
+    }
+    public void SetMusicVolume(float volume)
+    {
+
+    }
+    public void SetSFXVolume(float volume)
+    {
+
+    }
     public void ExitGame()
     {
 #if UNITY_EDITOR
