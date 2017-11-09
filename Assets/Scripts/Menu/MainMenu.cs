@@ -19,7 +19,7 @@ public class MainMenu : MonoBehaviour
     public EventSystem eventSystem;
     public GameObject selectedObject;
 
-    public Slider[] volumesliders;
+    public Slider[] volumeSliders;
     public  AudioMixer audioMixer;
     
     //SoundManagerScript m_soundManager;
@@ -104,17 +104,20 @@ public class MainMenu : MonoBehaviour
     {
        
     }
-    public void SetMaterVolume(float volume)
+    public void SetMaterVolume(float masterVolume)
     {
-        audioMixer.SetFloat("MasterVolume", volume);
+        masterVolume = volumeSliders[0].value;
+        audioMixer.SetFloat("MasterVolume", masterVolume);
     }
-    public void SetMusicVolume(float volume)
+    public void SetMusicVolume(float musicVolume)
     {
-        audioMixer.SetFloat("MusicVolume", volume);
+        musicVolume = volumeSliders[1].value;
+        audioMixer.SetFloat("MusicVolume", musicVolume);
     }
-    public void SetSFXVolume(float volume)
+    public void SetSFXVolume(float SFXVolume)
     {
-        audioMixer.SetFloat("SFXVolume", volume);
+        SFXVolume = volumeSliders[2].value;
+        audioMixer.SetFloat("SFXVolume", SFXVolume);
     }
     public void ExitGame()
     {
