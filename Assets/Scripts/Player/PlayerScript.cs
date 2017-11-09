@@ -49,6 +49,7 @@ public class PlayerScript : MonoBehaviour
     public AudioSource[] m_tauntVoice;
 
     public ParticleSystem m_healthPickupEffect;
+    public ParticleSystem m_wandEffect;
     #region Serialized variables
     [SerializeField]
     private SpriteRenderer m_elementIndicator;
@@ -159,12 +160,15 @@ public class PlayerScript : MonoBehaviour
         m_tauntVoice[value].Play();
     }
 
+   
+
     public void ShootCurrentElement()
     {
         //This can prob be done better
         BasicElementScript element = m_elementFactory.BasicEarth; //Gives errors if not set to a value
 
         m_characterAnimator.SetTrigger("shooting");
+        m_wandEffect.Play(m_wandEffect.transform);
 
         switch (m_currentElement)
         {
