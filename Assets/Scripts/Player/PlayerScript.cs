@@ -69,7 +69,7 @@ public class PlayerScript : MonoBehaviour
     #endregion
 
     private bool m_isDead;
-
+	private int m_spellIndex = 0;
     private Globals.Direction m_direction;
     private Rigidbody2D m_rigidbody;
 
@@ -80,7 +80,7 @@ public class PlayerScript : MonoBehaviour
     private Globals.Element m_currentElement;
 
     private Animator m_characterAnimator;
-    
+	private Globals.Element[] m_AvailableElements;
 
     [SerializeField]
     private const float m_minKnockbackValue = 5; //(K) constant knockback, set pretty low
@@ -95,11 +95,12 @@ public class PlayerScript : MonoBehaviour
 
         m_characterAnimator = GetComponent<Animator>();
            
-
+		m_AvailableElements = new Globals.Element[2];
 
 
         m_isDead = false;
         m_elementIndicator.color = Globals.BrownColor;
+
     }
 
     void Update()
@@ -122,14 +123,14 @@ public class PlayerScript : MonoBehaviour
             m_rigidbody.velocity += Vector2.up * Physics2D.gravity.y * (m_fallMultiplier - 1) * Time.deltaTime;
         }
 
-
+		//Debug.Log (GetTeam());
         
     }
     #endregion
 
     #region Public Methods
     public Globals.Team GetTeam() { return m_team; }
-
+	public void SetTeam(Globals.Team team){ m_team = team; }
     public void SetDirection(Globals.Direction aDirection) { m_direction = aDirection; }
 
     /// <summary>
@@ -159,10 +160,16 @@ public class PlayerScript : MonoBehaviour
         m_tauntVoice[value].Play();
     }
 
+	public void SetElements(int aIndex, Globals.Element aElement)
+	{
+		m_AvailableElements [aIndex] = aElement;
+		Debug.Log (m_AvailableElements [aIndex].ToString());
+	}
     public void ShootCurrentElement()
     {
         //This can prob be done better
         BasicElementScript element = m_elementFactory.BasicEarth; //Gives errors if not set to a value
+		//BasicElementScript element = m_AvailableElements[m_spellIndex];
 
         m_characterAnimator.SetTrigger("shooting");
 
@@ -181,6 +188,8 @@ public class PlayerScript : MonoBehaviour
                 element = m_elementFactory.BasicWater;
                 break;
         }
+
+
         BasicElementScript tempGO = Instantiate(element, m_shootingTransform.position, new Quaternion()) as BasicElementScript;
         tempGO.SetOriginTeam(GetTeam());
 
@@ -206,7 +215,7 @@ public class PlayerScript : MonoBehaviour
 
     public void ChangeElement()
     {
-        switch (m_currentElement)
+        /*switch (m_currentElement)
         {
             case Globals.Element.Earth:
                 m_currentElement = Globals.Element.Wind;
@@ -224,7 +233,18 @@ public class PlayerScript : MonoBehaviour
                 m_currentElement = Globals.Element.Earth;
                 m_elementIndicator.color = Globals.BrownColor;
                 break;
-        }
+        }*/
+		if (m_spellIndex == 0) 
+		{
+			m_spellIndex = 1;
+			m_currentElement = m_AvailableElements [m_spellIndex];
+		} 
+		else 
+		{
+			m_spellIndex = 0;
+			m_currentElement = m_AvailableElements [m_spellIndex];
+		}
+		Debug.Log (m_currentElement.ToString());
     }
 
     public void Jump()

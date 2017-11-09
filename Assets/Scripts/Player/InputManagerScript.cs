@@ -114,6 +114,7 @@ public class InputManagerScript : MonoBehaviour
 
             if (Input.GetButtonDown ("Fire2" + m_thisControllerName + m_playerNumber.ToString ()))
 			{
+				Debug.Log ("Changed Element");
 				m_playerScript.ChangeElement ();
 			}
 		}
