@@ -40,6 +40,7 @@ public class PlayerScript : MonoBehaviour
     #endregion
 
     private const int KnockBackOffset = 10;
+    private const int MaxAvaliableSpells = 2;
 
     public Transform[] m_groundPoints;
 
@@ -165,6 +166,25 @@ public class PlayerScript : MonoBehaviour
 		m_AvailableElements [aIndex] = aElement;
 		Debug.Log (m_AvailableElements [aIndex].ToString());
 	}
+
+
+    /// <summary>
+    /// Throws System.Exception
+    /// Used during loading for the prefab of chosen player
+    /// </summary>
+    /// <param name="anElementArray">An array containing the elements</param>
+    public void SetElements(Globals.Element[] anElementArray)
+    {
+        if(anElementArray.Length > MaxAvaliableSpells)
+        {
+            throw new System.Exception("Too many spells in ElementArray");
+        }
+        else
+        {
+            m_AvailableElements = anElementArray;
+        }
+    }
+
     public void ShootCurrentElement()
     {
         //This can prob be done better
@@ -234,16 +254,18 @@ public class PlayerScript : MonoBehaviour
                 m_elementIndicator.color = Globals.BrownColor;
                 break;
         }*/
-		if (m_spellIndex == 0) 
-		{
-			m_spellIndex = 1;
-			m_currentElement = m_AvailableElements [m_spellIndex];
-		} 
-		else 
-		{
-			m_spellIndex = 0;
-			m_currentElement = m_AvailableElements [m_spellIndex];
-		}
+		//if (m_spellIndex == 0) 
+		//{
+		//	m_spellIndex = 1;
+		//	m_currentElement = m_AvailableElements [m_spellIndex];
+		//} 
+		//else 
+		//{
+		//	m_spellIndex = 0;
+		//	m_currentElement = m_AvailableElements [m_spellIndex];
+		//}
+
+        m_spellIndex = m_spellIndex % MaxAvaliableSpells;
 		Debug.Log (m_currentElement.ToString());
     }
 
