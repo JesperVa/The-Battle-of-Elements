@@ -13,6 +13,8 @@ public class CharacterSelect : MonoBehaviour {
 	private int m_SpellOneIndex;
 	private int m_SpellTwoIndex = 1;
 
+    private Globals.Element[] m_ChosenElements;
+
 	public Text m_SpellOneText;
 	public Text m_SpellTwoText;
 	public Text m_TeamText;
@@ -23,20 +25,16 @@ public class CharacterSelect : MonoBehaviour {
 	public ElementFactoryScript m_Element;
 	//private BasicElementScript m_Element;
 	// Use this for initialization
-	void Start () 
+	void Awake () 
 	{
 		m_SpellOneText.text = m_SpellList[m_SpellOneIndex];
 		m_SpellTwoText.text = m_SpellList[m_SpellTwoIndex];
-		//m_Element = new BasicElementScript ();
-		//m_Element = new ElementFactoryScript();
+        //m_Element = new BasicElementScript ();
+        //m_Element = new ElementFactoryScript();
+
+        m_ChosenElements = new Globals.Element[2];
 	}
 	
-	// Update is called once per frame
-	void Update () 
-	{
-		
-	}
-
 	public void TeamSelect()
 	{
 		if (m_TeamText.text == "Red Team") 
@@ -67,24 +65,44 @@ public class CharacterSelect : MonoBehaviour {
 
 	private void CheckElement(int aIndex, int aSpellIndex)
 	{
-		if (m_SpellList [aSpellIndex] == "Fire") 
-		{
-			m_player.SetElements (aIndex, Globals.Element.Fire);
-		}
-		else if (m_SpellList [aSpellIndex] == "Water") 
-		{
-			m_player.SetElements (aIndex, Globals.Element.Water);
-		}
-		else if (m_SpellList [aSpellIndex] == "Wind") 
-		{
-			m_player.SetElements (aIndex, Globals.Element.Wind);
-		}
-		else if (m_SpellList [aSpellIndex] == "Earth") 
-		{
-			m_player.SetElements (aIndex, Globals.Element.Earth);
-		}
-	}
-	public void FirstSpellSelect() 
+
+        if (m_SpellList[aSpellIndex] == "Fire")
+        {
+            m_ChosenElements[aIndex] = Globals.Element.Fire;
+        }
+        else if (m_SpellList[aSpellIndex] == "Water")
+        {
+            m_ChosenElements[aIndex] = Globals.Element.Water;
+        }
+        else if (m_SpellList[aSpellIndex] == "Wind")
+        {
+            m_ChosenElements[aIndex] = Globals.Element.Wind;
+        }
+        else if (m_SpellList[aSpellIndex] == "Earth")
+        {
+            m_ChosenElements[aIndex] = Globals.Element.Earth;
+        }
+
+        #region Old code
+        //if (m_SpellList [aSpellIndex] == "Fire") 
+        //{
+        //	m_player.SetElements (aIndex, Globals.Element.Fire);
+        //}
+        //else if (m_SpellList [aSpellIndex] == "Water") 
+        //{
+        //	m_player.SetElements (aIndex, Globals.Element.Water);
+        //}
+        //else if (m_SpellList [aSpellIndex] == "Wind") 
+        //{
+        //	m_player.SetElements (aIndex, Globals.Element.Wind);
+        //}
+        //else if (m_SpellList [aSpellIndex] == "Earth") 
+        //{
+        //	m_player.SetElements (aIndex, Globals.Element.Earth);
+        //}
+        #endregion
+    }
+    public void FirstSpellSelect() 
 	{
 		m_SpellOneIndex++;
 
@@ -106,11 +124,16 @@ public class CharacterSelect : MonoBehaviour {
 		}
 		m_SpellTwoText.text = m_SpellList[m_SpellTwoIndex];
 		CheckElement (1, m_SpellTwoIndex);
+
 	}
 
 	public void ReadyUp() 
 	{
-		DontDestroyOnLoad (m_player);
-		SceneManager.LoadScene ("DevScene");
+        SceneChanger.Instance.addPlayer(m_player);
+        SceneChanger.Instance.StartUpGame("DevScene");
+
+
+		//DontDestroyOnLoad (m_player);
+		//SceneManager.LoadScene ("DevScene");
 	}
 }
