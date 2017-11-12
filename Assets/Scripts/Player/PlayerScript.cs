@@ -96,7 +96,7 @@ public class PlayerScript : MonoBehaviour
 
         m_characterAnimator = GetComponent<Animator>();
            
-		m_AvailableElements = new Globals.Element[2];
+		m_AvailableElements = new Globals.Element[MaxAvaliableSpells];
 
 
         m_isDead = false;
