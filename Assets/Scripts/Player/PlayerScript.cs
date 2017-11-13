@@ -88,8 +88,12 @@ public class PlayerScript : MonoBehaviour
     private float m_increasingKnockbackValue = 0; //X is a knockback value every player has that increases depending on their damage taken
 
     #region Monobehavior methods
-    void Start()
+    void Awake()
     {
+        //Needed when players are handled inbetween scenes
+        //DontDestroyOnLoad(this.gameObject);
+
+
         m_rigidbody = GetComponent<Rigidbody2D>();
         m_rigidbody.freezeRotation = true;
         m_currentElement = Globals.Element.Earth;
@@ -167,6 +171,13 @@ public class PlayerScript : MonoBehaviour
 		Debug.Log (m_AvailableElements [aIndex].ToString());
 	}
 
+    public void SetPosition(Vector2 aPostion)
+    {
+        Debug.Log("We tried to change position to: ");
+        Transform tempTrans = GetComponent<Transform>();
+        tempTrans.position = aPostion;
+    }
+
 
     /// <summary>
     /// Throws System.Exception
@@ -181,6 +192,7 @@ public class PlayerScript : MonoBehaviour
         }
         else
         {
+            Debug.Log("Inside playerscript: " + anElementArray[0] + " " + anElementArray[1]);
             m_AvailableElements = anElementArray;
         }
     }
@@ -265,8 +277,9 @@ public class PlayerScript : MonoBehaviour
 		//	m_currentElement = m_AvailableElements [m_spellIndex];
 		//}
 
-        m_spellIndex = m_spellIndex % MaxAvaliableSpells;
-		Debug.Log (m_currentElement.ToString());
+        m_spellIndex = ++m_spellIndex % MaxAvaliableSpells;
+        m_currentElement = m_AvailableElements[m_spellIndex];
+		Debug.Log (m_currentElement.ToString() + " " +  m_spellIndex);
     }
 
     public void Jump()
