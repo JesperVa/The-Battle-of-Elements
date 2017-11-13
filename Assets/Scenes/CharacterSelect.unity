@@ -108,6 +108,49 @@ NavMeshSettings:
     tileSize: 256
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &94677209
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 94677211}
+  - component: {fileID: 94677210}
+  m_Layer: 0
+  m_Name: Scenechanger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &94677210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 94677209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b08eaf3f8fe07524994d7e2c839f3b9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LosingTeam: 
+  m_players:
+  - {fileID: 114139882123927096, guid: c8d8b5e4238ba0a44b4b6524a6fd54d6, type: 2}
+--- !u!4 &94677211
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 94677209}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.4956661, y: -2.139169, z: -0.390625}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &139207861
 GameObject:
   m_ObjectHideFlags: 0
@@ -540,12 +583,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 328554953}
---- !u!114 &442445099 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114139882123927096, guid: c8d8b5e4238ba0a44b4b6524a6fd54d6,
-    type: 2}
-  m_PrefabInternal: {fileID: 306023635}
-  m_Script: {fileID: 11500000, guid: 133ba679a4fd13c47bf2cb8ae0ff591e, type: 3}
 --- !u!1 &481814503
 GameObject:
   m_ObjectHideFlags: 0
@@ -773,7 +810,6 @@ MonoBehaviour:
   m_SpellOneText: {fileID: 1925394908}
   m_SpellTwoText: {fileID: 1525787494}
   m_TeamText: {fileID: 247021226}
-  m_player: {fileID: 442445099}
   m_Element: {fileID: 114685513988645090, guid: 40d262b014f5da146bc892f337bcffa4,
     type: 2}
 --- !u!1 &863062067
