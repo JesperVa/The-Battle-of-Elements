@@ -76,6 +76,8 @@ public class PlayerScript : MonoBehaviour
 
     public bool m_doubleJumped = false;
 
+    public bool m_takingDamage = false;
+
     public float m_fallMultiplier = 3.5f;
 
     private Globals.Element m_currentElement;
@@ -261,6 +263,7 @@ public class PlayerScript : MonoBehaviour
 
     public void TakeDamage(float aDmgTaken, bool aKnockedFromRight)
     {
+        m_takingDamage = true;
         m_characterAnimator.SetTrigger("knockbacked");
         m_getHitVoice.Play();  
 
@@ -275,6 +278,7 @@ public class PlayerScript : MonoBehaviour
         {
             m_rigidbody.AddForce(transform.right * (m_minKnockbackValue + CalculateKnockBack()), ForceMode2D.Impulse);
         }
+       
     }
 
     public void PlayKnockedOutVoice()
