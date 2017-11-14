@@ -23,12 +23,19 @@ public class UIKnockbackColor : MonoBehaviour {
             m_playerKnockbackColor.color = new Color32(255, 0, 0, 200);
             Invoke("ChangeBackColor", 0.5f);
         }
-       
+
+        if (m_player.m_takingPowerUp)
+        {
+            m_playerKnockbackColor.color = new Color32(0, 255, 0, 200);
+            Invoke("ChangeBackColor", 0.5f);
+        }
+
 
     }
     public void ChangeBackColor()
     {
         m_player.m_takingDamage = false;
+        m_player.m_takingPowerUp = false;
         m_playerKnockbackColor.color = m_baseColor;
     }
 }

@@ -78,6 +78,8 @@ public class PlayerScript : MonoBehaviour
 
     public bool m_takingDamage = false;
 
+    public bool m_takingPowerUp = false;
+
     public float m_fallMultiplier = 3.5f;
 
     private Globals.Element m_currentElement;
@@ -299,6 +301,7 @@ public class PlayerScript : MonoBehaviour
     {
         if(aCollider.tag == "Health")
         {
+            m_takingPowerUp = true;
             m_healthPickupEffect.Play(m_rigidbody.transform);
             if (m_increasingKnockbackValue < 10)
             {
