@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Be aware this will not prevent a non singleton constructor
@@ -76,6 +77,9 @@ public class SingletonScript<T> : MonoBehaviour where T : MonoBehaviour
 	/// </summary>
 	public void OnDestroy () 
 	{
-		ApplicationIsQuitting = true;
+        if (SceneManager.GetActiveScene().name != "MainMenu")
+        {
+            ApplicationIsQuitting = true;
+        }
 	}
 }

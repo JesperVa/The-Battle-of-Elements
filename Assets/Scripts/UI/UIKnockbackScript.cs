@@ -17,7 +17,7 @@ public class UIKnockbackScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		m_playerKnockbackText.text = GameMasterScript.Instance.GetPlayerKnockback (m_player).ToString();	
+		m_playerKnockbackText.text = GameMasterScript.Instance.GetPlayerKnockback (m_player).ToString();
 	}
 }
 
