@@ -513,6 +513,7 @@ GameObject:
   - component: {fileID: 332356760}
   - component: {fileID: 332356759}
   - component: {fileID: 332356761}
+  - component: {fileID: 332356762}
   m_Layer: 5
   m_Name: CountDown
   m_TagString: Untagged
@@ -588,6 +589,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &332356762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 332356757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9eccc8d63a2c6804ea5d3acc1fa41f44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &338450195 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 200aa36ee9890d34ba69e1bad687db83, type: 3}

@@ -8,6 +8,8 @@ public class GameMasterScript : SingletonScript<GameMasterScript>
     // private SoundManagerScript m_soundManager;
     //  public string m_testSoundName;
 
+    bool m_countDownDone = false; //Use this when countDown is ready
+
     public ParticleSystem m_respawnParticles;
 
     [SerializeField]
