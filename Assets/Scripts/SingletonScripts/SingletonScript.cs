@@ -27,6 +27,7 @@ public class SingletonScript<T> : MonoBehaviour where T : MonoBehaviour
             //        " Won't create again - returning null.");
             //    return null;
             //}
+   
 
             lock (Lock)
             {
