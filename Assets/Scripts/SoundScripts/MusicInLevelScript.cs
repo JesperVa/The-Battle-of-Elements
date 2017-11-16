@@ -14,6 +14,7 @@ public class MusicInLevelScript : MonoBehaviour
     void Start()
     {
         m_intro.Play();
+        Invoke("PlayBeginVoice", 4.5f);
     }
     void FixedUpdate()
     {
@@ -25,6 +26,10 @@ public class MusicInLevelScript : MonoBehaviour
         }
     }
 
+    void PlayBeginVoice()
+    {
+        m_voice.Play();
+    }
     // Update is called once per frame
     void Update()
     {
