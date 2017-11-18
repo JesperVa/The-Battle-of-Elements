@@ -25,9 +25,14 @@ public class SceneChanger : SingletonScript<SceneChanger> {
         //m_players = new List<PlayerScript>();
     }
 
-    public void addPlayer(PlayerData aPlayer)
+    public void AddPlayer(PlayerData aPlayer)
     {
         m_playerdataList.Add(aPlayer);
+    }
+
+    public void RemovePlayer(PlayerData aPlayer)
+    {
+        m_playerdataList.Remove(aPlayer);
     }
 
     public void StartUpGame(string aScene)

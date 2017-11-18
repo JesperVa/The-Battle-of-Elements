@@ -14,11 +14,18 @@ public class CharacterSelect : MonoBehaviour
     private int m_SpellOneIndex;
     private int m_SpellTwoIndex = 1;
 
+    private bool m_isReady = false;
+
     private Globals.Element[] m_ChosenElements;
 
     public Text m_SpellOneText;
     public Text m_SpellTwoText;
     public Text m_TeamText;
+
+    //Instead of creating a seperate object that checks all the other objects 
+    private static int AmountOfReadyUps = 0;
+
+    private const int MaxPlayers = 4; //This needs to be removed and added non-hardcoded
 
     private bool m_TeamRed = true;
     //public PlayerScript m_player;
@@ -144,23 +151,28 @@ public class CharacterSelect : MonoBehaviour
 
     public void ReadyUp()
     {
-        //try
-        //{
-        //    //m_player.SetElements(m_ChosenElements);
-        //    m_playerdata.ElementArray = m_ChosenElements;
 
-        //    Debug.Log("Chosen elements were: " + m_ChosenElements[0] + " " + m_ChosenElements[1]);
-        //    //m_player.ChangeElement(); //To make sure we don't get default loadin
-        //}
-        //catch (System.Exception)
-        //{
-        //    Debug.Log("Couldn't set elements correctly for ");
-        //}
+        if (!m_isReady)
+        {
+            m_playerdata.ElementArray = m_ChosenElements;
+            SceneChanger.Instance.AddPlayer(m_playerdata);
+            AmountOfReadyUps++;
+            m_isReady = true;
 
-        m_playerdata.ElementArray = m_ChosenElements;
+        }
+        else
+        {
+            
+            SceneChanger.Instance.RemovePlayer(m_playerdata);
+            AmountOfReadyUps--;
+            m_isReady = false;
+        }
 
-        SceneChanger.Instance.addPlayer(m_playerdata);
-        SceneChanger.Instance.StartUpGame("DevScene");
+        if (AmountOfReadyUps == MaxPlayers)
+        {
+            
+            SceneChanger.Instance.StartUpGame("DevScene");
+        }
 
 
         //DontDestroyOnLoad (m_player);
