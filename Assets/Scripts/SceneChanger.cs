@@ -43,21 +43,22 @@ public class SceneChanger : SingletonScript<SceneChanger> {
         }
 
         Scene tempScene = SceneManager.GetActiveScene();
-        GameObject tempObject = GameObject.FindGameObjectWithTag("Spawnposition");
+        
         SceneManager.LoadScene(aScene, LoadSceneMode.Additive);
+
+        //GameObject[] tempObjects = GameObject.FindGameObjectsWithTag("Spawnposition");
+        List<PlayerScript> players = new List<PlayerScript>();
 
         for (int i = 0; i < m_playerdataList.Count; i++)
         {
             PlayerScript tempPlayer = Instantiate(m_players[i]) as PlayerScript;
-            tempPlayer.SetPosition(m_playerdataList[i].Position);
+            //tempPlayer.SetPosition(m_playerdataList[i].Position);
             tempPlayer.SetElements(m_playerdataList[i].ElementArray);
             tempPlayer.SetTeam(m_playerdataList[i].Team);
             SceneManager.MoveGameObjectToScene(tempPlayer.gameObject, SceneManager.GetSceneByName(aScene));
+            players.Add(tempPlayer);
+            
         }
-
-        //Debug.Log("Did we get here5");
-        //SceneManager.GetSceneByBuildIndex(0);
-        //SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(1));
 
         //Destroys all the gameobjects in the older scene after the loadin has been finished
         foreach (GameObject go in tempScene.GetRootGameObjects())
@@ -65,20 +66,10 @@ public class SceneChanger : SingletonScript<SceneChanger> {
             Destroy(go);
         }
 
-        //SceneManager.SetActiveScene(tempScene);
 
+        GameMasterScript.Instance.StartGame(players);
 
-        //Loads all the players into the scene
-        //foreach (var player in m_playerdataList)
-        //{
-        //    Debug.Log("Just making sure inside scenechanger");
-        //    PlayerScript tempPlayer = Instantiate(player) as PlayerScript;
-        //    Debug.Log(tempPlayer.transform.position);
-        //    tempPlayer.SetPosition(tempObject.transform);
-        //    Debug.Log(tempPlayer.transform.position);
-        //}
-
-
+       
 
     }
 

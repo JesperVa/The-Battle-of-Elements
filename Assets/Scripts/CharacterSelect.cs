@@ -162,15 +162,15 @@ public class CharacterSelect : MonoBehaviour
         }
         else
         {
-            
             SceneChanger.Instance.RemovePlayer(m_playerdata);
             AmountOfReadyUps--;
             m_isReady = false;
         }
 
+        Debug.Log(AmountOfReadyUps);
+
         if (AmountOfReadyUps == MaxPlayers)
         {
-            
             SceneChanger.Instance.StartUpGame("DevScene");
         }
 
