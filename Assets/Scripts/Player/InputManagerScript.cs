@@ -7,7 +7,7 @@ public class InputManagerScript : MonoBehaviour
 	//These values will be moved to inspector
 	private const float MomentumIncreaseOnGround = 0.5f;
 	private const float MomentumIncreaseInAir = 0.1f;
-	private const float MaxMomentum = 1f;
+	private const float MaxMomentum = 0.5f;
     private const float MaxMomentumInAir = 0.3f;
 
     private const float ControllerOffset = 0.4f;

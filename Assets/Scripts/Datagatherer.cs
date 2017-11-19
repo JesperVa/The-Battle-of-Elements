@@ -7,7 +7,7 @@ using System.Text;
 
 public class Datagatherer : SingletonScript<Datagatherer> {
 
-    private const float TimeBetweenUpdate = 0.8f;
+    private const float TimeBetweenUpdate = 1.5f;
     private float TimeSinceLastUpdate;
 
     [SerializeField] //Gotta check how the list is in the scene
@@ -28,7 +28,6 @@ public class Datagatherer : SingletonScript<Datagatherer> {
             initialized = true;
         }
         TimeSinceLastUpdate += Time.deltaTime;
-        Debug.Log(TimeSinceLastUpdate);
         if(isRecordingData && TimeSinceLastUpdate > TimeBetweenUpdate)
         {
             for (int i = 0; i < m_players.Count; i++)
@@ -74,7 +73,10 @@ public class Datagatherer : SingletonScript<Datagatherer> {
         System.IO.Directory.CreateDirectory(appDataPath); //Makes sure the appdata folder is there, if it is it doesn't do anything
         string[] count = System.IO.Directory.GetFiles(appDataPath);
         //Counts files in folder and names replay after that 
-        fileName = string.Format(fileName, count.Length); 
+        fileName = string.Format(fileName, count.Length);
+
+        BoxCollider2D[] platforms = GameObject.Find("Platforms").GetComponentsInChildren<BoxCollider2D>();
+         
 
         using (FileStream fs = File.Create(appDataPath + fileName))
         {
@@ -84,9 +86,18 @@ public class Datagatherer : SingletonScript<Datagatherer> {
             {
                 foreach (Vector2 position in m_positions[i])
                 {
-                    AddText(fs, position.ToString() + ";");
+                    AddText(fs, position.x.ToString() + "," + position.y.ToString() + ";");
                 }
                 AddText(fs, Environment.NewLine);
+            }
+
+            foreach (BoxCollider2D platform in platforms)
+            {
+                float X = platform.transform.position.x;
+                float Y = platform.transform.position.y;
+                float Width = platform.size.x;
+                float Height = platform.size.y;
+                AddText(fs, X.ToString() + "," + Y.ToString() + ":" + Width + "," + Height + ";");
             }
         }
     }
