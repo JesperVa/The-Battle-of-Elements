@@ -463,7 +463,7 @@ Transform:
   - {fileID: 282832310}
   - {fileID: 793424369}
   m_Father: {fileID: 792385021}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &117450871
 GameObject:
@@ -21036,7 +21036,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4946334464266428, guid: c813b9f823ebaeb42a9ec7f73714c3ec, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c813b9f823ebaeb42a9ec7f73714c3ec, type: 2}
@@ -21234,12 +21234,12 @@ Prefab:
         type: 2}
       propertyPath: m_Players.Array.data[0]
       value: 
-      objectReference: {fileID: 646149440}
+      objectReference: {fileID: 0}
     - target: {fileID: 114105105075607346, guid: 87be7eafdfae36a4d8a9668667680b2c,
         type: 2}
       propertyPath: m_Players.Array.data[1]
       value: 
-      objectReference: {fileID: 991841035}
+      objectReference: {fileID: 0}
     - target: {fileID: 114105105075607346, guid: 87be7eafdfae36a4d8a9668667680b2c,
         type: 2}
       propertyPath: m_RespawnPositions.Array.data[0]

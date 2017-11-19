@@ -21,7 +21,7 @@ public class GameMasterScript : SingletonScript<GameMasterScript>
     [SerializeField]
     private int m_RespawnTime;
     [SerializeField]
-    private CameraControl m_Camera;
+    private CameraControl m_Camera; 
     [SerializeField] 
     private int m_TeamLives;
     private Hashtable m_CurrentLives;
@@ -58,6 +58,16 @@ public class GameMasterScript : SingletonScript<GameMasterScript>
         //Physics2D.IgnoreLayerCollision(8, 9, true);
 
 
+    }
+
+    public void StartGame(List<PlayerScript> aPlayerList)
+    {
+        foreach (PlayerScript player in aPlayerList)
+        {
+            m_Camera.AddTarget(player.transform);
+        }
+
+        m_Players = aPlayerList;
     }
 
     void LateUpdate()
