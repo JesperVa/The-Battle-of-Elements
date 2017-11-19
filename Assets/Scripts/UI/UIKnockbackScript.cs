@@ -7,12 +7,15 @@ using UnityEngine.UI;
 public class UIKnockbackScript : MonoBehaviour {
 
 	private Text m_playerKnockbackText;
-	public PlayerScript m_player;
+	private PlayerScript m_player;
+    [SerializeField]
+    private Globals.PlayerNumber number;
 	// Use this for initialization
 	void Awake () 
 	{
-		m_playerKnockbackText = GetComponent<Text> ();	
-	}
+		m_playerKnockbackText = GetComponent<Text> ();
+        m_player = GameObject.Find("Player" + number.ToString()).GetComponent<PlayerScript>();
+    }
 
 	// Update is called once per frame
 	void Update () 

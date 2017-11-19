@@ -24,6 +24,15 @@ public class GameMasterScript : SingletonScript<GameMasterScript>
     private CameraControl m_Camera; 
     [SerializeField] 
     private int m_TeamLives;
+
+    //Used for initalisation
+    [SerializeField]
+    private UIKnockbackScript[] m_KnockBackFields;
+    [SerializeField]
+    private UITeamLivesScript[] m_TeamLivesFiels;
+    [SerializeField]
+
+
     private Hashtable m_CurrentLives;
     private Queue<Transform> m_TransformQueue;
 
@@ -51,23 +60,31 @@ public class GameMasterScript : SingletonScript<GameMasterScript>
         m_CurrentLives.Add(Globals.Team.Blue, m_TeamLives);
         m_CurrentLives.Add(Globals.Team.Red, m_TeamLives);
 
-        //TODO:Makes sure that Players and Elements doesn't have collision
-        //This will be removed and edited inside OnCollision2D for PlayerScript/ElementScript once development has gotten further
-        //Physics2D.IgnoreLayerCollision (10, 9, true);
-        //Ignore collision between Platforms and Elements
-        //Physics2D.IgnoreLayerCollision(8, 9, true);
+        GameObject[] TempGOs = GameObject.FindGameObjectsWithTag("Player");
+        m_Players.Clear();
+        foreach (GameObject go in TempGOs) 
+        {
+            m_Players.Add(go.GetComponent<PlayerScript>());
+        }
+        StartGame(m_Players);
 
 
     }
 
     public void StartGame(List<PlayerScript> aPlayerList)
     {
+        
         foreach (PlayerScript player in aPlayerList)
         {
+            Debug.Log("Hello???");
             m_Camera.AddTarget(player.transform);
         }
+        
 
-        m_Players = aPlayerList;
+        Debug.Log("In here we have: " + aPlayerList.Count);
+
+        //m_Players = aPlayerList;
+        Datagatherer.Instance.StartRecording(m_Players);
     }
 
     void LateUpdate()
@@ -136,6 +153,7 @@ public class GameMasterScript : SingletonScript<GameMasterScript>
         {
             m_gameHasEnded = true;
             Debug.Log("Game Over");
+            Datagatherer.Instance.StopRecording();
             //Logic for what happens when the game ends
             GameWon();
         }

@@ -29,6 +29,7 @@ public class InputManagerScript : MonoBehaviour
 	private string m_thisControllerName;
 
 	public Globals.PlayerNumber m_playerNumber;
+    private int m_controllerCheck = 5;
 
 	private PlayerScript m_playerScript;
 
@@ -45,6 +46,22 @@ public class InputManagerScript : MonoBehaviour
 
 		GetControllerType ();
         //Debug.Log("Start Player " + m_playerNumber);
+
+        switch(m_playerNumber)
+        {
+            case Globals.PlayerNumber.One:
+                m_controllerCheck = 1;
+                break;
+            case Globals.PlayerNumber.Two:
+                m_controllerCheck = 2;
+                break;
+            case Globals.PlayerNumber.Three:
+                m_controllerCheck = 3;
+                break;
+            case Globals.PlayerNumber.Four:
+                m_controllerCheck = 4;
+                break;
+        }
 	}
 	
 	// Update is called once per frame
@@ -75,48 +92,51 @@ public class InputManagerScript : MonoBehaviour
 
         if (!m_keyboard)
 		{
-			m_inputs = Vector2.zero;
-			m_inputs.x = Input.GetAxis ("Horizontal" + m_thisControllerName + m_playerNumber.ToString ());
-            m_inputs.y = Input.GetAxis("Vertical" + m_thisControllerName + m_playerNumber.ToString());
+            if (m_controllerCheck <= Input.GetJoystickNames().Length) //Makes sure we don't get errors
+            {
+                m_inputs = Vector2.zero;
+                m_inputs.x = Input.GetAxis("Horizontal" + m_thisControllerName + m_playerNumber.ToString());
+                m_inputs.y = Input.GetAxis("Vertical" + m_thisControllerName + m_playerNumber.ToString());
 
-           
-            //Fix for issue with Jespers' controller
-            //TODO: Remove
-            if (m_inputs.x < 0.5 && m_inputs.x > -0.5)
-			{
-				m_inputs.x = 0;
-			}
 
-           // if(Input.GetButtonDown("Fire3" + m_thisControllerName + m_playerNumber.ToString()))
-            //{
-              //  m_playerScript.PlayTauntVoice();
-            //}
-
-			if (Input.GetButtonDown ("Jump" + m_thisControllerName + m_playerNumber.ToString ()) && m_playerScript.IsOnGround ())
-			{
-				m_playerScript.Jump ();
-			}
-			else if (Input.GetButtonDown ("Jump" + m_thisControllerName + m_playerNumber.ToString ()) && !m_playerScript.IsOnGround () && !m_playerScript.m_doubleJumped)
-			{
-				m_playerScript.Jump ();
-				m_playerScript.m_doubleJumped = true;
-			}
-
-			if (Input.GetButtonDown ("Fire1" + m_thisControllerName + m_playerNumber.ToString ()))
-			{
-
-                if (m_timeBetweenShots < m_timeSinceLastShot)
+                //Fix for issue with Jespers' controller
+                //TODO: Remove
+                if (m_inputs.x < 0.5 && m_inputs.x > -0.5)
                 {
-                    m_timeSinceLastShot = 0;
-                    m_playerScript.ShootCurrentElement();
+                    m_inputs.x = 0;
                 }
-			}        
 
-            if (Input.GetButtonDown ("Fire2" + m_thisControllerName + m_playerNumber.ToString ()))
-			{
-				Debug.Log ("Changed Element");
-				m_playerScript.ChangeElement ();
-			}
+                // if(Input.GetButtonDown("Fire3" + m_thisControllerName + m_playerNumber.ToString()))
+                //{
+                //  m_playerScript.PlayTauntVoice();
+                //}
+
+                if (Input.GetButtonDown("Jump" + m_thisControllerName + m_playerNumber.ToString()) && m_playerScript.IsOnGround())
+                {
+                    m_playerScript.Jump();
+                }
+                else if (Input.GetButtonDown("Jump" + m_thisControllerName + m_playerNumber.ToString()) && !m_playerScript.IsOnGround() && !m_playerScript.m_doubleJumped)
+                {
+                    m_playerScript.Jump();
+                    m_playerScript.m_doubleJumped = true;
+                }
+
+                if (Input.GetButtonDown("Fire1" + m_thisControllerName + m_playerNumber.ToString()))
+                {
+
+                    if (m_timeBetweenShots < m_timeSinceLastShot)
+                    {
+                        m_timeSinceLastShot = 0;
+                        m_playerScript.ShootCurrentElement();
+                    }
+                }
+
+                if (Input.GetButtonDown("Fire2" + m_thisControllerName + m_playerNumber.ToString()))
+                {
+                    Debug.Log("Changed Element");
+                    m_playerScript.ChangeElement();
+                }
+            }
 		}
 		else
 		{

@@ -25,6 +25,7 @@ public class CameraControl : MonoBehaviour
 
 	private void Awake()
 	{
+        m_targets.Clear();
 		m_camera = GetComponentInChildren<Camera>();
 	}
 

@@ -228,7 +228,7 @@ public class PlayerScript : MonoBehaviour
                 element = m_elementFactory.BasicWater;
                 break;
         }
-
+        
 
         BasicElementScript tempGO = Instantiate(element, m_shootingTransform.position, new Quaternion()) as BasicElementScript;
         tempGO.SetOriginTeam(GetTeam());

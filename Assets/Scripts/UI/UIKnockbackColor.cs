@@ -6,12 +6,16 @@ using UnityEngine.UI;
 public class UIKnockbackColor : MonoBehaviour {
 
     private Image m_playerKnockbackColor;
-    public PlayerScript m_player;
+    private PlayerScript m_player;
+    [SerializeField]
+    private Globals.PlayerNumber number;
     public Text m_numberSize;
     public Color m_baseColor;
     // Use this for initialization
     void Awake()
     {
+
+        m_player = GameObject.Find("Player" + number.ToString()).GetComponent<PlayerScript>();
         m_playerKnockbackColor = GetComponent<Image>();
         m_baseColor = m_playerKnockbackColor.color;
         m_numberSize.fontSize = 35;

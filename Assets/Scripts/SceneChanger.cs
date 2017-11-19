@@ -57,8 +57,11 @@ public class SceneChanger : SingletonScript<SceneChanger> {
             tempPlayer.SetTeam(m_playerdataList[i].Team);
             SceneManager.MoveGameObjectToScene(tempPlayer.gameObject, SceneManager.GetSceneByName(aScene));
             players.Add(tempPlayer);
+            Debug.Log("Test" + i);
             
         }
+
+        Debug.Log(players.Count);
 
         //Destroys all the gameobjects in the older scene after the loadin has been finished
         foreach (GameObject go in tempScene.GetRootGameObjects())
@@ -66,17 +69,15 @@ public class SceneChanger : SingletonScript<SceneChanger> {
             Destroy(go);
         }
 
-
-        GameMasterScript.Instance.StartGame(players);
-
-       
+        //GameObject.Find("_GameMaster").GetComponent<GameMasterScript>().StartGame(players);
+        //GameMasterScript.Instance.StartGame(players);
 
     }
 
 	public void ChangeToWin(string aLosingTeam)
 	{
 		m_LosingTeam = aLosingTeam;
-        
+
 		SceneManager.LoadScene("WinScene");
 	}
 }
