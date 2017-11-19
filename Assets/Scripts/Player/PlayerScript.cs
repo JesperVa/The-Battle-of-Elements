@@ -232,6 +232,7 @@ public class PlayerScript : MonoBehaviour
 
         BasicElementScript tempGO = Instantiate(element, m_shootingTransform.position, new Quaternion()) as BasicElementScript;
         tempGO.SetOriginTeam(GetTeam());
+        tempGO.SetOriginPlayer(this);
 
         if (m_direction == Globals.Direction.Right)
         {

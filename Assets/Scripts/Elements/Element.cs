@@ -10,6 +10,7 @@ public class Element : MonoBehaviour {
     protected Transform m_transform;
 
     protected Globals.Team m_originTeam;
+    protected PlayerScript m_originPlayer;
 
     // Use this for initialization
     void Start ()
@@ -42,6 +43,11 @@ public class Element : MonoBehaviour {
         {
             TryDealDamage(aCollider.GetComponent<PlayerScript>());
         }
+    }
+
+    public void SetOriginPlayer(PlayerScript aPlayer)
+    {
+        m_originPlayer = aPlayer;
     }
 
     public void SetOriginTeam(Globals.Team aTeam)

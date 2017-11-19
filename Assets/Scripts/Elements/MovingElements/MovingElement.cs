@@ -5,8 +5,7 @@ using UnityEngine;
 public class MovingElement : Element
 {
     //Might only be needed if we're using a moving element?
-    [SerializeField]
-    protected int m_speed;
+    public uint m_speed;
     //Same as above
     protected Vector2 m_direction;
 
@@ -18,6 +17,15 @@ public class MovingElement : Element
     public void SetDirection(Vector2 aDirection)
     {
         m_direction = aDirection;
+        if(aDirection.x != 0)
+        {
+            m_speed += (uint)m_originPlayer.GetComponent<Rigidbody2D>().velocity.x;
+        }
+        else
+        {
+            m_speed += (uint)m_originPlayer.GetComponent<Rigidbody2D>().velocity.y;
+        }
+        
     }
 
     /// <summary>
