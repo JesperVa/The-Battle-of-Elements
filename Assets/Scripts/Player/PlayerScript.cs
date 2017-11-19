@@ -50,6 +50,7 @@ public class PlayerScript : MonoBehaviour
     public AudioSource[] m_tauntVoice;
 
     public ParticleSystem m_healthPickupEffect;
+    public ParticleSystem m_wandEffect;
     #region Serialized variables
     [SerializeField]
     private SpriteRenderer m_elementIndicator;
@@ -75,6 +76,10 @@ public class PlayerScript : MonoBehaviour
     private Rigidbody2D m_rigidbody;
 
     public bool m_doubleJumped = false;
+
+    public bool m_takingDamage = false;
+
+    public bool m_takingPowerUp = false;
 
     public float m_fallMultiplier = 3.5f;
 
@@ -165,6 +170,7 @@ public class PlayerScript : MonoBehaviour
         m_tauntVoice[value].Play();
     }
 
+
 	public void SetElements(int aIndex, Globals.Element aElement)
 	{
 		m_AvailableElements [aIndex] = aElement;
@@ -197,6 +203,7 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
+
     public void ShootCurrentElement()
     {
         //This can prob be done better
@@ -204,6 +211,7 @@ public class PlayerScript : MonoBehaviour
 		//BasicElementScript element = m_AvailableElements[m_spellIndex];
 
         m_characterAnimator.SetTrigger("shooting");
+        m_wandEffect.Play(m_wandEffect.transform);
 
         switch (m_currentElement)
         {
@@ -312,6 +320,7 @@ public class PlayerScript : MonoBehaviour
 
     public void TakeDamage(float aDmgTaken, bool aKnockedFromRight)
     {
+        m_takingDamage = true;
         m_characterAnimator.SetTrigger("knockbacked");
         m_getHitVoice.Play();  
 
@@ -326,6 +335,7 @@ public class PlayerScript : MonoBehaviour
         {
             m_rigidbody.AddForce(transform.right * (m_minKnockbackValue + CalculateKnockBack()), ForceMode2D.Impulse);
         }
+       
     }
 
     public void PlayKnockedOutVoice()
@@ -346,6 +356,7 @@ public class PlayerScript : MonoBehaviour
     {
         if(aCollider.tag == "Health")
         {
+            m_takingPowerUp = true;
             m_healthPickupEffect.Play(m_rigidbody.transform);
             if (m_increasingKnockbackValue < 10)
             {

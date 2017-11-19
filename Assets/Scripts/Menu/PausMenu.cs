@@ -2,13 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class PausMenu : MonoBehaviour {
 
     public Transform PausCanvas;
-    public Transform OptionsCanvas; 
-	// 
-	void Update ()
+    public Transform OptionsCanvas;
+
+    public Slider[] volumeSliders;
+    public AudioMixer audioMixer;
+    // 
+    void Update ()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -41,6 +46,22 @@ public class PausMenu : MonoBehaviour {
     {
         PausCanvas.gameObject.SetActive(true);
         OptionsCanvas.gameObject.SetActive(false);
+    }
+
+    public void SetMaterVolume(float masterVolume)
+    {
+        masterVolume = volumeSliders[0].value;
+        audioMixer.SetFloat("MasterVolume", masterVolume);
+    }
+    public void SetMusicVolume(float musicVolume)
+    {
+        musicVolume = volumeSliders[1].value;
+        audioMixer.SetFloat("MusicVolume", musicVolume);
+    }
+    public void SetSFXVolume(float SFXVolume)
+    {
+        SFXVolume = volumeSliders[2].value;
+        audioMixer.SetFloat("SFXVolume", SFXVolume);
     }
 
     public void ExitGame()

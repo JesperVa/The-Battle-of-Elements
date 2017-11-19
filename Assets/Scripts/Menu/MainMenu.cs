@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEditor.Audio;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 
@@ -18,8 +19,11 @@ public class MainMenu : MonoBehaviour
     public EventSystem eventSystem;
     public GameObject selectedObject;
 
-    SoundManagerScript m_soundManager;
-    public string m_menuSongName;
+    public Slider[] volumeSliders;
+    public  AudioMixer audioMixer;
+    
+    //SoundManagerScript m_soundManager;
+    //public string m_menuSongName;
 
     public string chosenLevel;
 
@@ -31,8 +35,8 @@ public class MainMenu : MonoBehaviour
         SelectLevelCanvas.gameObject.SetActive(false);
         SelectCharacterCanvas.gameObject.SetActive(false); 
 
-	m_soundManager = SoundManagerScript.Instance;
-	m_soundManager.Play (m_menuSongName, true);
+	//m_soundManager = SoundManagerScript.Instance;
+	//m_soundManager.Play (m_menuSongName, true);
     }
 
 
@@ -100,7 +104,21 @@ public class MainMenu : MonoBehaviour
     {
        
     }
-
+    public void SetMaterVolume(float masterVolume)
+    {
+        masterVolume = volumeSliders[0].value;
+        audioMixer.SetFloat("MasterVolume", masterVolume);
+    }
+    public void SetMusicVolume(float musicVolume)
+    {
+        musicVolume = volumeSliders[1].value;
+        audioMixer.SetFloat("MusicVolume", musicVolume);
+    }
+    public void SetSFXVolume(float SFXVolume)
+    {
+        SFXVolume = volumeSliders[2].value;
+        audioMixer.SetFloat("SFXVolume", SFXVolume);
+    }
     public void ExitGame()
     {
 #if UNITY_EDITOR
