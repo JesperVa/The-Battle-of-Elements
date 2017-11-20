@@ -84,7 +84,7 @@ public class GameMasterScript : SingletonScript<GameMasterScript>
         Debug.Log("In here we have: " + aPlayerList.Count);
 
         //m_Players = aPlayerList;
-        Datagatherer.Instance.StartRecording(m_Players);
+        //Datagatherer.Instance.StartRecording(m_Players);
     }
 
     void LateUpdate()
@@ -153,7 +153,7 @@ public class GameMasterScript : SingletonScript<GameMasterScript>
         {
             m_gameHasEnded = true;
             Debug.Log("Game Over");
-            Datagatherer.Instance.StopRecording();
+            //Datagatherer.Instance.StopRecording();
             //Logic for what happens when the game ends
             GameWon();
         }
