@@ -647,7 +647,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4887433845207654, guid: da166d98c78493e429eaad44fb5785b6, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.71
+      value: -3.86
       objectReference: {fileID: 0}
     - target: {fileID: 4887433845207654, guid: da166d98c78493e429eaad44fb5785b6, type: 2}
       propertyPath: m_LocalPosition.z
@@ -689,7 +689,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4099516841693826, guid: c8d8b5e4238ba0a44b4b6524a6fd54d6, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.47
+      value: -3.28
       objectReference: {fileID: 0}
     - target: {fileID: 4099516841693826, guid: c8d8b5e4238ba0a44b4b6524a6fd54d6, type: 2}
       propertyPath: m_LocalPosition.z
@@ -3712,21 +3712,6 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 20187045745244136, guid: 8b5cdc7e66988a54b84e30af7592592e,
-        type: 2}
-      propertyPath: orthographic size
-      value: 11.47
-      objectReference: {fileID: 0}
-    - target: {fileID: 20187045745244136, guid: 8b5cdc7e66988a54b84e30af7592592e,
-        type: 2}
-      propertyPath: near clip plane
-      value: 0.08
-      objectReference: {fileID: 0}
-    - target: {fileID: 114453923885751882, guid: 8b5cdc7e66988a54b84e30af7592592e,
-        type: 2}
-      propertyPath: m_screenEdgeBuffer
-      value: 3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8b5cdc7e66988a54b84e30af7592592e, type: 2}
   m_IsPrefabParent: 0
@@ -5798,7 +5783,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4460595125019972, guid: 7e656614f9f1256419145de510e1f3dd, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.29
+      value: -4.92
       objectReference: {fileID: 0}
     - target: {fileID: 4460595125019972, guid: 7e656614f9f1256419145de510e1f3dd, type: 2}
       propertyPath: m_LocalPosition.z
@@ -6061,7 +6046,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4242704755668152, guid: b16414b15844c37429f0f2a83e04c014, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -5.04
+      value: -9.7
       objectReference: {fileID: 0}
     - target: {fileID: 4242704755668152, guid: b16414b15844c37429f0f2a83e04c014, type: 2}
       propertyPath: m_LocalPosition.z
@@ -6511,7 +6496,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4294399083470908, guid: 5de7504356c423c46916f1965a38aa3a, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.1
+      value: -4.36
       objectReference: {fileID: 0}
     - target: {fileID: 4294399083470908, guid: 5de7504356c423c46916f1965a38aa3a, type: 2}
       propertyPath: m_LocalPosition.z
@@ -7856,7 +7841,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 1
-  m_Color: {r: 0.5441177, g: 0.370287, b: 0.29206318, a: 1}
+  m_Color: {r: 0.53676474, g: 0.47661006, b: 0.28022277, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -7896,9 +7881,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_waveForm: 0
   m_baseStart: 0.7
-  m_amplitude: 0.1
-  m_phase: 5.07
-  m_frequency: 0.1
+  m_amplitude: 0.3
+  m_phase: 5
+  m_frequency: 0.25
 --- !u!1 &1842262907
 GameObject:
   m_ObjectHideFlags: 0
