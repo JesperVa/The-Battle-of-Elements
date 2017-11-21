@@ -21,7 +21,11 @@ public class GameMasterScript : SingletonScript<GameMasterScript>
     [SerializeField]
     private int m_RespawnTime;
     [SerializeField]
-    private CameraControl m_Camera; 
+    private CameraControl m_Camera;
+	[SerializeField]
+	private CameraShake m_cameraShake;
+	[SerializeField]
+	private float m_cameraShakeAmount = 0.3f;
     [SerializeField] 
     private int m_TeamLives;
 
@@ -178,9 +182,10 @@ public class GameMasterScript : SingletonScript<GameMasterScript>
                 if (pPos.x > m_DeathPositions[0].position.x || pPos.x < m_DeathPositions[1].position.x || pPos.y < m_DeathPositions[2].position.y)
                 {
                     m_Camera.RemoveTarget(player.transform);
-                    player.PlayKnockedOutVoice();
+                    
+					player.PlayKnockedOutVoice();
                     player.isDead = true;
-
+					m_cameraShake.ShakeCamera (m_cameraShakeAmount, 0.3f);
                     //Gives errors if I try to do this in a cleaner way :(
                     int temp = (int)m_CurrentLives[player.GetTeam()];
                     temp -= 1;
