@@ -1228,6 +1228,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 759.8914
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 86512b4ee43861e4b9ee33c095fcff05, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7d591887b9c6c204c996fc3cc05935c8, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 86512b4ee43861e4b9ee33c095fcff05, type: 3}
   m_IsPrefabParent: 0
@@ -2084,6 +2088,10 @@ Prefab:
       propertyPath: m_Name
       value: WaterGround
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 200aa36ee9890d34ba69e1bad687db83, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8a2cac8edc24dcd468b550636d6e1b9a, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 200aa36ee9890d34ba69e1bad687db83, type: 3}
   m_IsPrefabParent: 0
@@ -7064,13 +7072,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1829112925}
-  m_LocalRotation: {x: -0, y: 0.51060843, z: -0, w: 0.8598134}
+  m_LocalRotation: {x: 0.34312823, y: 0.1393128, z: -0.37531638, w: 0.8497015}
   m_LocalPosition: {x: 0, y: 15.57, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 386850667}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 61.409004, z: 0}
+  m_LocalEulerAnglesHint: {x: 43.447002, y: -1.6430001, z: -48.317}
 --- !u!108 &1829112927
 Light:
   m_ObjectHideFlags: 0
@@ -7080,8 +7088,8 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 1
-  m_Color: {r: 0.7727747, g: 0.83823526, b: 0.62251294, a: 1}
-  m_Intensity: 1
+  m_Color: {r: 0.2392157, g: 0.21176472, b: 0.15294118, a: 1}
+  m_Intensity: 2
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10

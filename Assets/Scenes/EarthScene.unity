@@ -13125,7 +13125,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1620541940
+  randomSeed: 1034802172
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -17064,6 +17064,10 @@ Prefab:
     - target: {fileID: 400000, guid: 200aa36ee9890d34ba69e1bad687db83, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 190.70299
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 200aa36ee9890d34ba69e1bad687db83, type: 3}
+      propertyPath: m_Name
+      value: EarthGround
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 200aa36ee9890d34ba69e1bad687db83, type: 3}
