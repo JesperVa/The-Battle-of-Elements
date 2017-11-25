@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -87,6 +88,11 @@ public class PlayerScript : MonoBehaviour
 
     private Animator m_characterAnimator;
 	private Globals.Element[] m_AvailableElements;
+
+	public Sprite[] m_SpellSprites;
+	private const int m_maxAvailableSprites = 2;
+	public Image m_currentSpellImg;
+	public Image m_secondSpellSprite;
 
     [SerializeField]
     private const float m_minKnockbackValue = 5; //(K) constant knockback, set pretty low
@@ -289,6 +295,65 @@ public class PlayerScript : MonoBehaviour
         m_spellIndex = ++m_spellIndex % MaxAvaliableSpells;
         m_currentElement = m_AvailableElements[m_spellIndex];
 		Debug.Log (m_currentElement.ToString() + " " +  m_spellIndex);
+
+		if (m_currentElement.Equals(Globals.Element.Earth)) 
+		{
+			Debug.Log ("changed element to earth");
+			m_currentSpellImg.sprite = m_SpellSprites [0];
+		}
+		else if(m_currentElement.Equals(Globals.Element.Fire)) 
+		{
+			Debug.Log ("changed element to fire");
+			m_currentSpellImg.sprite = m_SpellSprites [1];
+		}
+		else if(m_currentElement.Equals(Globals.Element.Water)) 
+		{
+			Debug.Log ("changed element to water");
+			m_currentSpellImg.sprite = m_SpellSprites [2];
+		}
+		else if(m_currentElement.Equals(Globals.Element.Wind)) 
+		{
+			Debug.Log ("changed element to wind");
+			m_currentSpellImg.sprite = m_SpellSprites [3];
+		}
+		if(m_spellIndex == 1) 
+		{
+			if(m_AvailableElements[m_spellIndex-1].Equals(Globals.Element.Earth))
+			{
+				m_secondSpellSprite.sprite = m_SpellSprites [0];
+			}
+			else if(m_AvailableElements[m_spellIndex-1].Equals(Globals.Element.Fire))
+			{
+				m_secondSpellSprite.sprite = m_SpellSprites [1];
+			}
+			else if(m_AvailableElements[m_spellIndex-1].Equals(Globals.Element.Water))
+			{
+				m_secondSpellSprite.sprite = m_SpellSprites [2];
+			}
+			else if(m_AvailableElements[m_spellIndex-1].Equals(Globals.Element.Wind))
+			{
+				m_secondSpellSprite.sprite = m_SpellSprites [3];
+			}
+		}
+		else if(m_spellIndex == 0) 
+		{
+			if(m_AvailableElements[m_spellIndex+1].Equals(Globals.Element.Earth))
+			{
+				m_secondSpellSprite.sprite = m_SpellSprites [0];
+			}
+			else if(m_AvailableElements[m_spellIndex+1].Equals(Globals.Element.Fire))
+			{
+				m_secondSpellSprite.sprite = m_SpellSprites [1];
+			}
+			else if(m_AvailableElements[m_spellIndex+1].Equals(Globals.Element.Water))
+			{
+				m_secondSpellSprite.sprite = m_SpellSprites [2];
+			}
+			else if(m_AvailableElements[m_spellIndex+1].Equals(Globals.Element.Wind))
+			{
+				m_secondSpellSprite.sprite = m_SpellSprites [3];
+			}
+		}
     }
 
     public void Jump()
