@@ -14,7 +14,15 @@ public class UIKnockbackScript : MonoBehaviour {
 	void Awake () 
 	{
 		m_playerKnockbackText = GetComponent<Text> ();
-        m_player = GameObject.Find("Player" + number.ToString()).GetComponent<PlayerScript>();
+        m_player = GameObject.Find("Player" + number.ToString() + "(Clone)").GetComponent<PlayerScript>();
+
+        //If it wasn't found it's probably a Cloned object
+        if (m_player == null)
+        {
+            m_player = GameObject.Find("Player" + number.ToString() + "(Clone)").GetComponent<PlayerScript>();
+        }
+
+        Debug.Log(m_player.gameObject.name);
     }
 
 	// Update is called once per frame

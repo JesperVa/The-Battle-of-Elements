@@ -57,7 +57,7 @@ public class SceneChanger : SingletonScript<SceneChanger> {
             tempPlayer.SetTeam(m_playerdataList[i].Team);
             SceneManager.MoveGameObjectToScene(tempPlayer.gameObject, SceneManager.GetSceneByName(aScene));
             players.Add(tempPlayer);
-            Debug.Log("Test" + i);
+            //Debug.Log("Test" + i);
             
         }
 

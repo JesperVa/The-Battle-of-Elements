@@ -167,7 +167,7 @@ public class CharacterSelect : MonoBehaviour
             m_isReady = false;
         }
 
-        Debug.Log(AmountOfReadyUps);
+        //Debug.Log(AmountOfReadyUps);
 
         if (AmountOfReadyUps == MaxPlayers)
         {

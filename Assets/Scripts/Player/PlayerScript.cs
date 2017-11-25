@@ -204,7 +204,7 @@ public class PlayerScript : MonoBehaviour
         }
         else
         {
-            Debug.Log("Inside playerscript: " + anElementArray[0] + " " + anElementArray[1]);
+            //Debug.Log("Inside playerscript: " + anElementArray[0] + " " + anElementArray[1]);
             m_AvailableElements = anElementArray;
         }
     }

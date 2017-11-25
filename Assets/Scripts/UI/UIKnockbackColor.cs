@@ -15,7 +15,14 @@ public class UIKnockbackColor : MonoBehaviour {
     void Awake()
     {
 
-        m_player = GameObject.Find("Player" + number.ToString()).GetComponent<PlayerScript>();
+        m_player = GameObject.Find("Player" + number.ToString() + "(Clone)").GetComponent<PlayerScript>();
+
+        //If it wasn't found it's probably a Cloned object
+        if (m_player == null)
+        {
+            m_player = GameObject.Find("Player" + number.ToString() + "(Clone)").GetComponent<PlayerScript>();
+        }
+
         m_playerKnockbackColor = GetComponent<Image>();
         m_baseColor = m_playerKnockbackColor.color;
         m_numberSize.fontSize = 35;

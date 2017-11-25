@@ -80,12 +80,11 @@ public class GameMasterScript : SingletonScript<GameMasterScript>
         
         foreach (PlayerScript player in aPlayerList)
         {
-            Debug.Log("Hello???");
             m_Camera.AddTarget(player.transform);
         }
         
 
-        Debug.Log("In here we have: " + aPlayerList.Count);
+        //Debug.Log("In here we have: " + aPlayerList.Count);
 
         //m_Players = aPlayerList;
         //Datagatherer.Instance.StartRecording(m_Players);
