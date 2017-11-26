@@ -14,7 +14,8 @@ public class CharacterSelect : MonoBehaviour
     private int m_SpellOneIndex;
     private int m_SpellTwoIndex = 1;
 
-    private bool m_isReady = false;
+    [System.NonSerialized]
+    public bool m_isReady = false;
 
     private Globals.Element[] m_ChosenElements;
 
@@ -29,6 +30,17 @@ public class CharacterSelect : MonoBehaviour
 
     private bool m_TeamRed = true;
     //public PlayerScript m_player;
+
+    public Globals.Team Team
+    {
+        get
+        {
+            if (m_TeamRed)
+                return Globals.Team.Red;
+            else
+                return Globals.Team.Blue;
+        }
+    }
 
     private PlayerData m_playerdata;
 
@@ -50,8 +62,8 @@ public class CharacterSelect : MonoBehaviour
         //m_Element = new BasicElementScript ();
         //m_Element = new ElementFactoryScript();
 
-        
-        
+
+
     }
 
     public void TeamSelect()
@@ -145,16 +157,10 @@ public class CharacterSelect : MonoBehaviour
         {
             SceneChanger.Instance.RemovePlayer(m_playerdata);
             AmountOfReadyUps--;
-            m_isReady = false;  
+            m_isReady = false;
         }
 
         //Debug.Log(AmountOfReadyUps);
-
-        if (AmountOfReadyUps == MaxPlayers)
-        {
-            SceneChanger.Instance.StartUpGame("DevScene");
-        }
-
 
         //DontDestroyOnLoad (m_player);
         //SceneManager.LoadScene ("DevScene");
