@@ -259,8 +259,8 @@ public class PlayerScript : MonoBehaviour
             tempGO.SetDirection(Vector2.down);
         }
     }
-
-    public void ChangeElement()
+   
+	public void ChangeElement()
     {
         /*switch (m_currentElement)
         {
@@ -294,66 +294,10 @@ public class PlayerScript : MonoBehaviour
 
         m_spellIndex = ++m_spellIndex % MaxAvaliableSpells;
         m_currentElement = m_AvailableElements[m_spellIndex];
+		ChangeElementUI ();
 		Debug.Log (m_currentElement.ToString() + " " +  m_spellIndex);
 
-		if (m_currentElement.Equals(Globals.Element.Earth)) 
-		{
-			Debug.Log ("changed element to earth");
-			m_currentSpellImg.sprite = m_SpellSprites [0];
-		}
-		else if(m_currentElement.Equals(Globals.Element.Fire)) 
-		{
-			Debug.Log ("changed element to fire");
-			m_currentSpellImg.sprite = m_SpellSprites [1];
-		}
-		else if(m_currentElement.Equals(Globals.Element.Water)) 
-		{
-			Debug.Log ("changed element to water");
-			m_currentSpellImg.sprite = m_SpellSprites [2];
-		}
-		else if(m_currentElement.Equals(Globals.Element.Wind)) 
-		{
-			Debug.Log ("changed element to wind");
-			m_currentSpellImg.sprite = m_SpellSprites [3];
-		}
-		if(m_spellIndex == 1) 
-		{
-			if(m_AvailableElements[m_spellIndex-1].Equals(Globals.Element.Earth))
-			{
-				m_secondSpellSprite.sprite = m_SpellSprites [0];
-			}
-			else if(m_AvailableElements[m_spellIndex-1].Equals(Globals.Element.Fire))
-			{
-				m_secondSpellSprite.sprite = m_SpellSprites [1];
-			}
-			else if(m_AvailableElements[m_spellIndex-1].Equals(Globals.Element.Water))
-			{
-				m_secondSpellSprite.sprite = m_SpellSprites [2];
-			}
-			else if(m_AvailableElements[m_spellIndex-1].Equals(Globals.Element.Wind))
-			{
-				m_secondSpellSprite.sprite = m_SpellSprites [3];
-			}
-		}
-		else if(m_spellIndex == 0) 
-		{
-			if(m_AvailableElements[m_spellIndex+1].Equals(Globals.Element.Earth))
-			{
-				m_secondSpellSprite.sprite = m_SpellSprites [0];
-			}
-			else if(m_AvailableElements[m_spellIndex+1].Equals(Globals.Element.Fire))
-			{
-				m_secondSpellSprite.sprite = m_SpellSprites [1];
-			}
-			else if(m_AvailableElements[m_spellIndex+1].Equals(Globals.Element.Water))
-			{
-				m_secondSpellSprite.sprite = m_SpellSprites [2];
-			}
-			else if(m_AvailableElements[m_spellIndex+1].Equals(Globals.Element.Wind))
-			{
-				m_secondSpellSprite.sprite = m_SpellSprites [3];
-			}
-		}
+
     }
 
     public void Jump()
@@ -403,6 +347,70 @@ public class PlayerScript : MonoBehaviour
         }
        
     }
+
+	public void ChangeElementUI() 
+	{
+
+		if (m_currentElement.Equals(Globals.Element.Earth)) 
+		{
+			//Debug.Log ("changed element to earth");
+			m_currentSpellImg.sprite = m_SpellSprites [0];
+		}
+		else if(m_currentElement.Equals(Globals.Element.Fire)) 
+		{
+			//Debug.Log ("changed element to fire");
+			m_currentSpellImg.sprite = m_SpellSprites [1];
+		}
+		else if(m_currentElement.Equals(Globals.Element.Water)) 
+		{
+			//Debug.Log ("changed element to water");
+			m_currentSpellImg.sprite = m_SpellSprites [2];
+		}
+		else if(m_currentElement.Equals(Globals.Element.Wind)) 
+		{
+			//Debug.Log ("changed element to wind");
+			m_currentSpellImg.sprite = m_SpellSprites [3];
+		}
+		if(m_spellIndex == 1) 
+		{
+			if(m_AvailableElements[m_spellIndex-1].Equals(Globals.Element.Earth))
+			{
+				m_secondSpellSprite.sprite = m_SpellSprites [0];
+			}
+			else if(m_AvailableElements[m_spellIndex-1].Equals(Globals.Element.Fire))
+			{
+				m_secondSpellSprite.sprite = m_SpellSprites [1];
+			}
+			else if(m_AvailableElements[m_spellIndex-1].Equals(Globals.Element.Water))
+			{
+				m_secondSpellSprite.sprite = m_SpellSprites [2];
+			}
+			else if(m_AvailableElements[m_spellIndex-1].Equals(Globals.Element.Wind))
+			{
+				m_secondSpellSprite.sprite = m_SpellSprites [3];
+			}
+		}
+		else if(m_spellIndex == 0) 
+		{
+			if(m_AvailableElements[m_spellIndex+1].Equals(Globals.Element.Earth))
+			{
+				m_secondSpellSprite.sprite = m_SpellSprites [0];
+			}
+			else if(m_AvailableElements[m_spellIndex+1].Equals(Globals.Element.Fire))
+			{
+				m_secondSpellSprite.sprite = m_SpellSprites [1];
+			}
+			else if(m_AvailableElements[m_spellIndex+1].Equals(Globals.Element.Water))
+			{
+				m_secondSpellSprite.sprite = m_SpellSprites [2];
+			}
+			else if(m_AvailableElements[m_spellIndex+1].Equals(Globals.Element.Wind))
+			{
+				m_secondSpellSprite.sprite = m_SpellSprites [3];
+			}
+		}
+
+	}
 
     public void PlayKnockedOutVoice()
     {
