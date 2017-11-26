@@ -63,6 +63,7 @@ public class SceneChanger : SingletonScript<SceneChanger> {
 
         Debug.Log(players.Count);
 
+
         //Destroys all the gameobjects in the older scene after the loadin has been finished
         foreach (GameObject go in tempScene.GetRootGameObjects())
         {

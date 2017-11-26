@@ -10,10 +10,13 @@ public class CSMaster : MonoBehaviour {
 
     private int AmountOfPlayers;
 
-    MainMenu mainMenuScript;
+    [SerializeField]
+    private MainMenu mainMenuScript;
 
     [SerializeField]
     private List<CharacterSelect> m_Players;
+
+    private bool hasLoaded = false;
 
     public string MapChoice;
     
@@ -23,6 +26,7 @@ public class CSMaster : MonoBehaviour {
     void Start()
     {
         AmountOfPlayers = m_Players.Count;
+        mainMenuScript = Component.FindObjectOfType<MainMenu>();
     }
 
 	// Update is called once per frame
@@ -47,12 +51,16 @@ public class CSMaster : MonoBehaviour {
                 }
             }
         }
-        Debug.Log(Mathf.Max(playersPerTeam) <= MaxPlayersPerTeam);
+        //Debug.Log(Mathf.Max(playersPerTeam) <= MaxPlayersPerTeam);
 
-		if(readyUps == AmountOfPlayers && Mathf.Max(playersPerTeam) <= MaxPlayersPerTeam)
+		if(readyUps == AmountOfPlayers && Mathf.Max(playersPerTeam) <= MaxPlayersPerTeam && hasLoaded == false)
         {
-            mainMenuScript.PlayLevel();
-            //SceneChanger.Instance.StartUpGame(mainMenuScript.chosenLevel);
+            //mainMenuScript.PlayLevel();
+            SceneChanger.Instance.StartUpGame(mainMenuScript.chosenLevel);
+            hasLoaded = true;
+            Debug.Log("Making sure");
         }
-	}
+
+        //Destroy(this); //Makes sure this is gone afterwards
+    }
 }

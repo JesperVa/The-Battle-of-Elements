@@ -100,7 +100,8 @@ public class MainMenu : MonoBehaviour
 
     public void PlayLevel()
     {
-        SceneManager.LoadScene(chosenLevel);
+        //SceneChanger.Instance.StartUpGame(chosenLevel);
+        //SceneManager.LoadScene(chosenLevel);
         //Application.LoadLevel(chosenLevel);
     }
 
