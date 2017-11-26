@@ -10,6 +10,8 @@ public class CSMaster : MonoBehaviour {
 
     private int AmountOfPlayers;
 
+    MainMenu mainMenuScript;
+
     [SerializeField]
     private List<CharacterSelect> m_Players;
 
@@ -26,6 +28,7 @@ public class CSMaster : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        
         readyUps = 0;
         playersPerTeam = new int[2];
 
@@ -48,7 +51,8 @@ public class CSMaster : MonoBehaviour {
 
 		if(readyUps == AmountOfPlayers && Mathf.Max(playersPerTeam) <= MaxPlayersPerTeam)
         {
-            SceneChanger.Instance.StartUpGame(MapChoice);
+            mainMenuScript.PlayLevel();
+            //SceneChanger.Instance.StartUpGame(mainMenuScript.chosenLevel);
         }
 	}
 }

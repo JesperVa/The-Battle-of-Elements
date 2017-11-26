@@ -103,7 +103,7 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene(chosenLevel);
         //Application.LoadLevel(chosenLevel);
     }
- 
+
     //Anävndas när vi lagt in 
     public void ToggleSound()
     {
