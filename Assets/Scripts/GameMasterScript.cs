@@ -81,6 +81,7 @@ public class GameMasterScript : SingletonScript<GameMasterScript>
         foreach (PlayerScript player in aPlayerList)
         {
             m_Camera.AddTarget(player.transform);
+            player.SetImagePanels(player.GetComponent<InputManagerScript>().m_playerNumber);
         }
         
 

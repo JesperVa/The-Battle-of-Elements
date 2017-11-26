@@ -104,25 +104,6 @@ public class CharacterSelect : MonoBehaviour
         {
             m_ChosenElements[aIndex] = Globals.Element.Earth;
         }
-
-        #region Old code
-        //if (m_SpellList [aSpellIndex] == "Fire") 
-        //{
-        //	m_player.SetElements (aIndex, Globals.Element.Fire);
-        //}
-        //else if (m_SpellList [aSpellIndex] == "Water") 
-        //{
-        //	m_player.SetElements (aIndex, Globals.Element.Water);
-        //}
-        //else if (m_SpellList [aSpellIndex] == "Wind") 
-        //{
-        //	m_player.SetElements (aIndex, Globals.Element.Wind);
-        //}
-        //else if (m_SpellList [aSpellIndex] == "Earth") 
-        //{
-        //	m_player.SetElements (aIndex, Globals.Element.Earth);
-        //}
-        #endregion
     }
     public void FirstSpellSelect()
     {
@@ -164,7 +145,7 @@ public class CharacterSelect : MonoBehaviour
         {
             SceneChanger.Instance.RemovePlayer(m_playerdata);
             AmountOfReadyUps--;
-            m_isReady = false;
+            m_isReady = false;  
         }
 
         //Debug.Log(AmountOfReadyUps);

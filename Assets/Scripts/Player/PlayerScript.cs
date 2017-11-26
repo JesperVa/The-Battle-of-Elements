@@ -105,6 +105,9 @@ public class PlayerScript : MonoBehaviour
         //Needed when players are handled inbetween scenes
         //DontDestroyOnLoad(this.gameObject);
 
+        //Globals.PlayerNumber playerNumber = GetComponent<InputManagerScript>().m_playerNumber;
+
+        //SetImagePanels(playerNumber);
 
         m_rigidbody = GetComponent<Rigidbody2D>();
         m_rigidbody.freezeRotation = true;
@@ -188,7 +191,7 @@ public class PlayerScript : MonoBehaviour
     {
         m_AvailableElements[aIndex] = aElement;
         Debug.Log(m_AvailableElements[aIndex].ToString());
-        ChangeElement(); //To make sure we don't get a default starting value
+        //ChangeElement(); //To make sure we don't get a default starting value
     }
 
     public void SetPosition(Vector2 aPostion)
@@ -271,36 +274,6 @@ public class PlayerScript : MonoBehaviour
 
     public void ChangeElement()
     {
-        /*switch (m_currentElement)
-        {
-            case Globals.Element.Earth:
-                m_currentElement = Globals.Element.Wind;
-                m_elementIndicator.color = Color.white;
-                break;
-            case Globals.Element.Wind:
-                m_currentElement = Globals.Element.Water;
-                m_elementIndicator.color = Color.blue;
-                break;
-            case Globals.Element.Water:
-                m_currentElement = Globals.Element.Fire;
-                m_elementIndicator.color = Color.red;
-                break;
-            case Globals.Element.Fire:
-                m_currentElement = Globals.Element.Earth;
-                m_elementIndicator.color = Globals.BrownColor;
-                break;
-        }*/
-        //if (m_spellIndex == 0) 
-        //{
-        //	m_spellIndex = 1;
-        //	m_currentElement = m_AvailableElements [m_spellIndex];
-        //} 
-        //else 
-        //{
-        //	m_spellIndex = 0;
-        //	m_currentElement = m_AvailableElements [m_spellIndex];
-        //}
-
         m_spellIndex = ++m_spellIndex % MaxAvaliableSpells;
         m_currentElement = m_AvailableElements[m_spellIndex];
         Debug.Log(m_currentElement.ToString() + " " + m_spellIndex);
@@ -413,6 +386,21 @@ public class PlayerScript : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Public method to find ImagePanels
+    /// Has to be public otherwise we can't find them after scenechange
+    /// </summary>
+    /// <param name="aNumber"></param>
+    public void SetImagePanels(Globals.PlayerNumber aNumber)
+    {
+        int number = (int)aNumber + 1;
+        Debug.Log("Image_Player" + number + "Portrait");
+        m_currentSpellImg = GameObject.Find("Image_Player" + number + "Portrait").GetComponent<Image>();
+        m_secondSpellSprite = GameObject.Find("Image_Player" + number + "Spell2").GetComponent<Image>();
+        //Debug.Log(")
+        ChangeElement();
+    }
+
     public void PlayKnockedOutVoice()
     {
         m_knockedOutVoice.Play();
@@ -420,6 +408,8 @@ public class PlayerScript : MonoBehaviour
     #endregion
 
     #region Private methods
+
+
     private void HandleDeath()
     {
         deathTime += Time.deltaTime;

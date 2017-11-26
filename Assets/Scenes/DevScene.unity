@@ -1643,7 +1643,7 @@ GameObject:
   - component: {fileID: 337558324}
   - component: {fileID: 337558323}
   m_Layer: 5
-  m_Name: Image_Element2
+  m_Name: Image_Player2Spell2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6007,7 +6007,7 @@ GameObject:
   - component: {fileID: 759996393}
   - component: {fileID: 759996392}
   m_Layer: 5
-  m_Name: Image_Element2
+  m_Name: Image_Player3Spell2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6872,7 +6872,7 @@ GameObject:
   - component: {fileID: 929975652}
   - component: {fileID: 929975651}
   m_Layer: 5
-  m_Name: Image_Element2
+  m_Name: Image_Player4Spell2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11351,7 +11351,7 @@ GameObject:
   - component: {fileID: 1299937295}
   - component: {fileID: 1299937294}
   m_Layer: 5
-  m_Name: Image_Element2
+  m_Name: Image_Player1Spell2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
