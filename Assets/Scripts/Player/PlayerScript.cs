@@ -466,7 +466,6 @@ public class PlayerScript : MonoBehaviour
     private float CalculateKnockBack()
     {
         const float value = 1.05f; //(Y) constant value used to multiply the X value the larger it becomes
-        Debug.Log(Knockback);
         return Mathf.Pow(Knockback / KnockBackOffset, value); // K+(X^Y)
     }
     #endregion

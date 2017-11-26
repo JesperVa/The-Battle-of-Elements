@@ -10,7 +10,7 @@ public class GameMasterScript : SingletonScript<GameMasterScript>
 
     bool m_countDownDone = false; //Use this when countDown is ready
 
-    public ParticleSystem m_respawnParticles;
+    public ParticleSystem[] m_respawnParticles;
 
     [SerializeField]
     private List<PlayerScript> m_Players; //PlayerNumbers are based on Array number
@@ -22,8 +22,8 @@ public class GameMasterScript : SingletonScript<GameMasterScript>
     private int m_RespawnTime;
     [SerializeField]
     private CameraControl m_Camera;
-    [SerializeField]
-    private CameraShake m_cameraShake;
+    //[SerializeField]
+    //private CameraShake m_cameraShake;
     [SerializeField]
     private float m_cameraShakeAmount = 0.3f;
     [SerializeField]
@@ -81,9 +81,10 @@ public class GameMasterScript : SingletonScript<GameMasterScript>
 
         foreach (PlayerScript player in aPlayerList)
         {
-            m_Camera.AddTarget(player.transform);
+            //m_Camera.AddTarget(player.transform);
             player.SetImagePanels(player.GetComponent<InputManagerScript>().m_playerNumber);
             player.deathTime = m_RespawnTime + 1;
+            player.isDead = true;
 
             Debug.Log(player.deathTime);
         }
@@ -117,10 +118,10 @@ public class GameMasterScript : SingletonScript<GameMasterScript>
             if ((int)m_CurrentLives[m_Players[i].GetTeam()] > 0 && m_Players[i].isDead && m_Players[i].deathTime > m_RespawnTime)
             {
                 m_randRespawnValue[i] = (int)(Random.value * m_RespawnPositions.Length - 1);
-                if (!m_respawnParticles.isPlaying)
+                if (!m_respawnParticles[m_randRespawnValue[i]].isPlaying)
                 {
-                    m_respawnParticles.Play(m_RespawnPositions[m_randRespawnValue[i]].transform);
-                    m_Camera.AddTarget(m_RespawnPositions[m_randRespawnValue[i]].transform);
+                    m_respawnParticles[m_randRespawnValue[i]].Play(m_RespawnPositions[m_randRespawnValue[i]].transform);
+                    //m_Camera.AddTarget(m_RespawnPositions[m_randRespawnValue[i]].transform);
                 }
 
                 //m_Camera.AddTarget(m_RespawnPositions[m_randRespawnValue].transform);
@@ -136,13 +137,11 @@ public class GameMasterScript : SingletonScript<GameMasterScript>
         {
             if ((int)m_CurrentLives[m_Players[i].GetTeam()] > 0 && m_Players[i].isDead && m_Players[i].deathTime > m_RespawnTime)
             {
-                Debug.Log("Respawned player: " + m_Players[i]);
                 m_Players[i].transform.position = m_RespawnPositions[m_randRespawnValue[i]].position;
                 m_Camera.RemoveTarget(m_RespawnPositions[m_randRespawnValue[i]].transform);
                 m_Camera.AddTarget(m_Players[i].transform);
                 //Debug.Log(m_Camera.Targets());
                 m_Players[i].isDead = false;
-
             }
         }
     }
@@ -177,7 +176,6 @@ public class GameMasterScript : SingletonScript<GameMasterScript>
     private void GameWon()
     {
         SceneChanger.Instance.ChangeToWin(m_losingTeam);
-
     }
 
     private void CheckIfOutsideOfBounds()
@@ -192,19 +190,23 @@ public class GameMasterScript : SingletonScript<GameMasterScript>
                 Vector3 pPos = player.transform.position;
                 if (pPos.x > m_DeathPositions[0].position.x || pPos.x < m_DeathPositions[1].position.x || pPos.y < m_DeathPositions[2].position.y)
                 {
+
                     m_Camera.RemoveTarget(player.transform);
 
                     //Moves the player far down to make sure he isn't seen
                     //Pretty bad fix tbh
-                    player.SetPosition(m_DeathPositions[2].position * 10);
 
+                    player.SetPosition(m_DeathPositions[2].position * 10);
                     player.PlayKnockedOutVoice();
                     player.isDead = true;
-                    m_cameraShake.ShakeCamera(m_cameraShakeAmount, 0.3f);
+                    //TODO: Look into why camerashake kills the code
+                   // m_cameraShake.ShakeCamera(m_cameraShakeAmount, 0.3f);
                     //Gives errors if I try to do this in a cleaner way :(
                     int temp = (int)m_CurrentLives[player.GetTeam()];
                     temp -= 1;
                     m_CurrentLives[player.GetTeam()] = temp;
+
+                    Debug.Log("We decreased lifes");
                     if ((int)m_CurrentLives[player.GetTeam()] <= 0)
                     {
                         Debug.Log(player.GetTeam() + " team is dead");

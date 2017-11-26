@@ -59,7 +59,6 @@ public class Element : MonoBehaviour {
     {
         if (aTarget.GetTeam() != m_originTeam)
         {
-            Debug.Log("Test");
             if (aTarget.transform.position.x < transform.position.x)
             {
                 aTarget.TakeDamage(m_knockbackDamage, true); //the player got knocked from the right

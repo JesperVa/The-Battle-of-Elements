@@ -8014,6 +8014,11 @@ Transform:
   m_PrefabParentObject: {fileID: 4442851043251394, guid: 9f627eb8fdb2abb469dfb0936a53f905,
     type: 2}
   m_PrefabInternal: {fileID: 1291480313}
+--- !u!198 &1291480315 stripped
+ParticleSystem:
+  m_PrefabParentObject: {fileID: 198936769051537464, guid: 9f627eb8fdb2abb469dfb0936a53f905,
+    type: 2}
+  m_PrefabInternal: {fileID: 1291480313}
 --- !u!1 &1292178676
 GameObject:
   m_ObjectHideFlags: 0
@@ -13323,6 +13328,11 @@ Transform:
   m_PrefabParentObject: {fileID: 4442851043251394, guid: 9f627eb8fdb2abb469dfb0936a53f905,
     type: 2}
   m_PrefabInternal: {fileID: 1705289498}
+--- !u!198 &1705289500 stripped
+ParticleSystem:
+  m_PrefabParentObject: {fileID: 198936769051537464, guid: 9f627eb8fdb2abb469dfb0936a53f905,
+    type: 2}
+  m_PrefabInternal: {fileID: 1705289498}
 --- !u!1 &1711978999
 GameObject:
   m_ObjectHideFlags: 0
@@ -17784,6 +17794,11 @@ Transform:
   m_PrefabParentObject: {fileID: 4442851043251394, guid: 9f627eb8fdb2abb469dfb0936a53f905,
     type: 2}
   m_PrefabInternal: {fileID: 1929626899}
+--- !u!198 &1929626901 stripped
+ParticleSystem:
+  m_PrefabParentObject: {fileID: 198936769051537464, guid: 9f627eb8fdb2abb469dfb0936a53f905,
+    type: 2}
+  m_PrefabInternal: {fileID: 1929626899}
 --- !u!1 &1932751747
 GameObject:
   m_ObjectHideFlags: 0
@@ -17869,6 +17884,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 712651513}
     m_Modifications:
+    - target: {fileID: 114105105075607346, guid: 87be7eafdfae36a4d8a9668667680b2c,
+        type: 2}
+      propertyPath: m_respawnParticles.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4673822833849112, guid: 87be7eafdfae36a4d8a9668667680b2c, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -17905,7 +17925,7 @@ Prefab:
         type: 2}
       propertyPath: m_respawnParticles
       value: 
-      objectReference: {fileID: 1956525240}
+      objectReference: {fileID: 0}
     - target: {fileID: 114105105075607346, guid: 87be7eafdfae36a4d8a9668667680b2c,
         type: 2}
       propertyPath: m_DeathPositions.Array.data[0]
@@ -17946,6 +17966,26 @@ Prefab:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 174848431}
+    - target: {fileID: 114105105075607346, guid: 87be7eafdfae36a4d8a9668667680b2c,
+        type: 2}
+      propertyPath: m_respawnParticles.Array.data[0]
+      value: 
+      objectReference: {fileID: 1291480315}
+    - target: {fileID: 114105105075607346, guid: 87be7eafdfae36a4d8a9668667680b2c,
+        type: 2}
+      propertyPath: m_respawnParticles.Array.data[1]
+      value: 
+      objectReference: {fileID: 1956525240}
+    - target: {fileID: 114105105075607346, guid: 87be7eafdfae36a4d8a9668667680b2c,
+        type: 2}
+      propertyPath: m_respawnParticles.Array.data[2]
+      value: 
+      objectReference: {fileID: 1929626901}
+    - target: {fileID: 114105105075607346, guid: 87be7eafdfae36a4d8a9668667680b2c,
+        type: 2}
+      propertyPath: m_respawnParticles.Array.data[3]
+      value: 
+      objectReference: {fileID: 1705289500}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 87be7eafdfae36a4d8a9668667680b2c, type: 2}
   m_IsPrefabParent: 0
