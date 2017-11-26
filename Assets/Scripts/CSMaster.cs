@@ -16,8 +16,6 @@ public class CSMaster : MonoBehaviour {
     [SerializeField]
     private List<CharacterSelect> m_Players;
 
-    private bool hasLoaded = false;
-
     public string MapChoice;
     
     private int readyUps;
@@ -27,6 +25,7 @@ public class CSMaster : MonoBehaviour {
     {
         AmountOfPlayers = m_Players.Count;
         mainMenuScript = Component.FindObjectOfType<MainMenu>();
+
     }
 
 	// Update is called once per frame
@@ -53,12 +52,12 @@ public class CSMaster : MonoBehaviour {
         }
         //Debug.Log(Mathf.Max(playersPerTeam) <= MaxPlayersPerTeam);
 
-		if(readyUps == AmountOfPlayers && Mathf.Max(playersPerTeam) <= MaxPlayersPerTeam && hasLoaded == false)
+		if(readyUps == AmountOfPlayers && Mathf.Max(playersPerTeam) <= MaxPlayersPerTeam)
         {
             //mainMenuScript.PlayLevel();
             SceneChanger.Instance.StartUpGame(mainMenuScript.chosenLevel);
             hasLoaded = true;
-            Debug.Log("Making sure");
+            
         }
 
         //Destroy(this); //Makes sure this is gone afterwards
