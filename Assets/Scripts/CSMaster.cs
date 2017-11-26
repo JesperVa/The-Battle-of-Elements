@@ -56,7 +56,6 @@ public class CSMaster : MonoBehaviour {
         {
             //mainMenuScript.PlayLevel();
             SceneChanger.Instance.StartUpGame(mainMenuScript.chosenLevel);
-            hasLoaded = true;
             
         }
 

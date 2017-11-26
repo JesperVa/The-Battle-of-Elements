@@ -93,10 +93,11 @@ public class Datagatherer : SingletonScript<Datagatherer> {
 
             foreach (BoxCollider2D platform in platforms)
             {
+                Vector3 scale = platform.GetComponent<Transform>().localScale;
                 float X = platform.transform.position.x;
                 float Y = platform.transform.position.y;
-                float Width = platform.size.x;
-                float Height = platform.size.y;
+                float Width = platform.size.x * scale.x;
+                float Height = platform.size.y * scale.y;
                 AddText(fs, X.ToString() + "," + Y.ToString() + ":" + Width + "," + Height + ";");
             }
         }
