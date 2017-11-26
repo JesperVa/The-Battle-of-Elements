@@ -85,12 +85,17 @@ public class MainMenu : MonoBehaviour
 
     public void SelectLevel2()
     {
-        chosenLevel = "TestingLevelDesign";
+        chosenLevel = "WindScene";
     }
 
     public void SelectLevel3()
     {
-        chosenLevel = "TestingSoundManagerScene";
+        chosenLevel = "FireScene";
+    }
+
+    public void SelectLevel4()
+    {
+        chosenLevel = "WaterScene";
     }
 
     public void PlayLevel()
