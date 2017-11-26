@@ -14,7 +14,8 @@ public class CharacterSelect : MonoBehaviour
     private int m_SpellOneIndex;
     private int m_SpellTwoIndex = 1;
 
-    private bool m_isReady = false;
+    [System.NonSerialized]
+    public bool m_isReady = false;
 
     private Globals.Element[] m_ChosenElements;
 
@@ -29,6 +30,17 @@ public class CharacterSelect : MonoBehaviour
 
     private bool m_TeamRed = true;
     //public PlayerScript m_player;
+
+    public Globals.Team Team
+    {
+        get
+        {
+            if (m_TeamRed)
+                return Globals.Team.Red;
+            else
+                return Globals.Team.Blue;
+        }
+    }
 
     private PlayerData m_playerdata;
 
@@ -50,8 +62,8 @@ public class CharacterSelect : MonoBehaviour
         //m_Element = new BasicElementScript ();
         //m_Element = new ElementFactoryScript();
 
-        
-        
+
+
     }
 
     public void TeamSelect()
@@ -104,25 +116,6 @@ public class CharacterSelect : MonoBehaviour
         {
             m_ChosenElements[aIndex] = Globals.Element.Earth;
         }
-
-        #region Old code
-        //if (m_SpellList [aSpellIndex] == "Fire") 
-        //{
-        //	m_player.SetElements (aIndex, Globals.Element.Fire);
-        //}
-        //else if (m_SpellList [aSpellIndex] == "Water") 
-        //{
-        //	m_player.SetElements (aIndex, Globals.Element.Water);
-        //}
-        //else if (m_SpellList [aSpellIndex] == "Wind") 
-        //{
-        //	m_player.SetElements (aIndex, Globals.Element.Wind);
-        //}
-        //else if (m_SpellList [aSpellIndex] == "Earth") 
-        //{
-        //	m_player.SetElements (aIndex, Globals.Element.Earth);
-        //}
-        #endregion
     }
     public void FirstSpellSelect()
     {
@@ -168,12 +161,6 @@ public class CharacterSelect : MonoBehaviour
         }
 
         //Debug.Log(AmountOfReadyUps);
-
-        if (AmountOfReadyUps == MaxPlayers)
-        {
-            SceneChanger.Instance.StartUpGame("DevScene");
-        }
-
 
         //DontDestroyOnLoad (m_player);
         //SceneManager.LoadScene ("DevScene");
