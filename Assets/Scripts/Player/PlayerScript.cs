@@ -276,71 +276,30 @@ public class PlayerScript : MonoBehaviour
     {
         m_spellIndex = ++m_spellIndex % MaxAvaliableSpells;
         m_currentElement = m_AvailableElements[m_spellIndex];
+        ChangeElementUI();
         Debug.Log(m_currentElement.ToString() + " " + m_spellIndex);
 
-        if (m_currentElement.Equals(Globals.Element.Earth))
-        {
-            Debug.Log("changed element to earth");
-            m_currentSpellImg.sprite = m_SpellSprites[0];
-        }
-        else if (m_currentElement.Equals(Globals.Element.Fire))
-        {
-            Debug.Log("changed element to fire");
-            m_currentSpellImg.sprite = m_SpellSprites[1];
-        }
-        else if (m_currentElement.Equals(Globals.Element.Water))
-        {
-            Debug.Log("changed element to water");
-            m_currentSpellImg.sprite = m_SpellSprites[2];
-        }
-        else if (m_currentElement.Equals(Globals.Element.Wind))
-        {
-            Debug.Log("changed element to wind");
-            m_currentSpellImg.sprite = m_SpellSprites[3];
-        }
-        if (m_spellIndex == 1)
-        {
-            if (m_AvailableElements[m_spellIndex - 1].Equals(Globals.Element.Earth))
-            {
-                m_secondSpellSprite.sprite = m_SpellSprites[0];
-            }
-            else if (m_AvailableElements[m_spellIndex - 1].Equals(Globals.Element.Fire))
-            {
-                m_secondSpellSprite.sprite = m_SpellSprites[1];
-            }
-            else if (m_AvailableElements[m_spellIndex - 1].Equals(Globals.Element.Water))
-            {
-                m_secondSpellSprite.sprite = m_SpellSprites[2];
-            }
-            else if (m_AvailableElements[m_spellIndex - 1].Equals(Globals.Element.Wind))
-            {
-                m_secondSpellSprite.sprite = m_SpellSprites[3];
-            }
-        }
-        else if (m_spellIndex == 0)
-        {
-            if (m_AvailableElements[m_spellIndex + 1].Equals(Globals.Element.Earth))
-            {
-                m_secondSpellSprite.sprite = m_SpellSprites[0];
-            }
-            else if (m_AvailableElements[m_spellIndex + 1].Equals(Globals.Element.Fire))
-            {
-                m_secondSpellSprite.sprite = m_SpellSprites[1];
-            }
-            else if (m_AvailableElements[m_spellIndex + 1].Equals(Globals.Element.Water))
-            {
-                m_secondSpellSprite.sprite = m_SpellSprites[2];
-            }
-            else if (m_AvailableElements[m_spellIndex + 1].Equals(Globals.Element.Wind))
-            {
-                m_secondSpellSprite.sprite = m_SpellSprites[3];
-            }
-        }
+
     }
 
     public void Jump()
     {
         m_rigidbody.velocity += Vector2.up * m_jumpSpeed;
+    }
+
+    /// <summary>
+    /// Public method to find ImagePanels
+    /// Has to be public otherwise we can't find them after scenechange
+    /// </summary>
+    /// <param name="aNumber"></param>
+    public void SetImagePanels(Globals.PlayerNumber aNumber)
+    {
+        int number = (int)aNumber + 1;
+        Debug.Log("Image_Player" + number + "Portrait");
+        m_currentSpellImg = GameObject.Find("Image_Player" + number + "Portrait").GetComponent<Image>();
+        m_secondSpellSprite = GameObject.Find("Image_Player" + number + "Spell2").GetComponent<Image>();
+        //Debug.Log(")
+        ChangeElement();
     }
 
     public bool IsOnGround()
@@ -386,19 +345,68 @@ public class PlayerScript : MonoBehaviour
 
     }
 
-    /// <summary>
-    /// Public method to find ImagePanels
-    /// Has to be public otherwise we can't find them after scenechange
-    /// </summary>
-    /// <param name="aNumber"></param>
-    public void SetImagePanels(Globals.PlayerNumber aNumber)
+    public void ChangeElementUI()
     {
-        int number = (int)aNumber + 1;
-        Debug.Log("Image_Player" + number + "Portrait");
-        m_currentSpellImg = GameObject.Find("Image_Player" + number + "Portrait").GetComponent<Image>();
-        m_secondSpellSprite = GameObject.Find("Image_Player" + number + "Spell2").GetComponent<Image>();
-        //Debug.Log(")
-        ChangeElement();
+
+        if (m_currentElement.Equals(Globals.Element.Earth))
+        {
+            //Debug.Log ("changed element to earth");
+            m_currentSpellImg.sprite = m_SpellSprites[0];
+        }
+        else if (m_currentElement.Equals(Globals.Element.Fire))
+        {
+            //Debug.Log ("changed element to fire");
+            m_currentSpellImg.sprite = m_SpellSprites[1];
+        }
+        else if (m_currentElement.Equals(Globals.Element.Water))
+        {
+            //Debug.Log ("changed element to water");
+            m_currentSpellImg.sprite = m_SpellSprites[2];
+        }
+        else if (m_currentElement.Equals(Globals.Element.Wind))
+        {
+            //Debug.Log ("changed element to wind");
+            m_currentSpellImg.sprite = m_SpellSprites[3];
+        }
+        if (m_spellIndex == 1)
+        {
+            if (m_AvailableElements[m_spellIndex - 1].Equals(Globals.Element.Earth))
+            {
+                m_secondSpellSprite.sprite = m_SpellSprites[0];
+            }
+            else if (m_AvailableElements[m_spellIndex - 1].Equals(Globals.Element.Fire))
+            {
+                m_secondSpellSprite.sprite = m_SpellSprites[1];
+            }
+            else if (m_AvailableElements[m_spellIndex - 1].Equals(Globals.Element.Water))
+            {
+                m_secondSpellSprite.sprite = m_SpellSprites[2];
+            }
+            else if (m_AvailableElements[m_spellIndex - 1].Equals(Globals.Element.Wind))
+            {
+                m_secondSpellSprite.sprite = m_SpellSprites[3];
+            }
+        }
+        else if (m_spellIndex == 0)
+        {
+            if (m_AvailableElements[m_spellIndex + 1].Equals(Globals.Element.Earth))
+            {
+                m_secondSpellSprite.sprite = m_SpellSprites[0];
+            }
+            else if (m_AvailableElements[m_spellIndex + 1].Equals(Globals.Element.Fire))
+            {
+                m_secondSpellSprite.sprite = m_SpellSprites[1];
+            }
+            else if (m_AvailableElements[m_spellIndex + 1].Equals(Globals.Element.Water))
+            {
+                m_secondSpellSprite.sprite = m_SpellSprites[2];
+            }
+            else if (m_AvailableElements[m_spellIndex + 1].Equals(Globals.Element.Wind))
+            {
+                m_secondSpellSprite.sprite = m_SpellSprites[3];
+            }
+        }
+
     }
 
     public void PlayKnockedOutVoice()
