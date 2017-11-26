@@ -931,7 +931,7 @@ MonoBehaviour:
   m_wandEffect: {fileID: 198878930517107116}
   m_elementIndicator: {fileID: 212391304808768082}
   m_speed: 20
-  m_jumpSpeed: 9
+  m_jumpSpeed: 8
   m_groundRadius: 0.1
   m_whatIsGround:
     serializedVersion: 2

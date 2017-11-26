@@ -487,7 +487,7 @@ GameObject:
   - component: {fileID: 95119646558704548}
   m_Layer: 8
   m_Name: plattform
-  m_TagString: MovingPlatform
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1208,7 +1208,7 @@ GameObject:
   - component: {fileID: 61846929941022336}
   m_Layer: 8
   m_Name: 3DPlatform
-  m_TagString: MovingPlatform
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3031,7 +3031,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1389376484981422}
   m_LocalRotation: {x: 0.08715578, y: 0, z: 0, w: 0.9961947}
-  m_LocalPosition: {x: -57, y: 1.2399883, z: 0}
+  m_LocalPosition: {x: -57.6, y: -1.430643, z: 0}
   m_LocalScale: {x: 1, y: 0.8, z: 1}
   m_Children:
   - {fileID: 4936006333104068}
@@ -3193,7 +3193,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1197841784498472}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -57, y: -10.6, z: 0}
+  m_LocalPosition: {x: -57, y: -9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4505176550581382}
@@ -4881,7 +4881,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -4.394558, y: -0.009769082}
+  m_Offset: {x: -4.394558, y: -0.570827}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -4892,7 +4892,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 15.0364, y: 1.6222239}
+  m_Size: {x: 15.0364, y: 2.74434}
   m_EdgeRadius: 0
 --- !u!95 &95119646558704548
 Animator:
