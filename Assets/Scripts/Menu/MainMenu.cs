@@ -80,7 +80,7 @@ public class MainMenu : MonoBehaviour
     //Kanske borde göras smidigare att lägga in fler kartor till spelet än att göra på detta sättet.
     public void SelectLevel1()
     {
-        chosenLevel = "DevScene";
+        chosenLevel = "EarthScene";
     }
 
     public void SelectLevel2()
