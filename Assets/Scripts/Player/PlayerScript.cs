@@ -24,7 +24,7 @@ public class PlayerScript : MonoBehaviour
     public float deathTime
     {
         get;
-        private set;
+        set;
     }
 
     public float Knockback
@@ -72,6 +72,7 @@ public class PlayerScript : MonoBehaviour
     private Transform m_shootingTransform;
     #endregion
 
+    [SerializeField]
     private bool m_isDead;
     private int m_spellIndex = 0;
     private Globals.Direction m_direction;
@@ -196,7 +197,7 @@ public class PlayerScript : MonoBehaviour
 
     public void SetPosition(Vector2 aPostion)
     {
-        Debug.Log("We tried to change position to: ");
+        //Debug.Log("We tried to change position to: ");
         Transform tempTrans = GetComponent<Transform>();
         tempTrans.position = aPostion;
     }

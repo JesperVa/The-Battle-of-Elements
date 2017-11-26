@@ -51,6 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc9d9315dd2d24a4e8fe64f09fb56c85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_respawnParticles: {fileID: 0}
   m_Players:
   - {fileID: 0}
   - {fileID: 0}
@@ -62,6 +63,13 @@ MonoBehaviour:
   - {fileID: 0}
   m_RespawnPositions:
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   m_RespawnTime: 2
   m_Camera: {fileID: 0}
+  m_cameraShake: {fileID: 0}
+  m_cameraShakeAmount: 0.3
   m_TeamLives: 3
+  m_KnockBackFields: []
+  m_TeamLivesFiels: []

@@ -22,7 +22,7 @@ public class UIKnockbackScript : MonoBehaviour {
             m_player = GameObject.Find("Player" + number.ToString() + "(Clone)").GetComponent<PlayerScript>();
         }
 
-        Debug.Log(m_player.gameObject.name);
+        //Debug.Log(m_player.gameObject.name);
     }
 
 	// Update is called once per frame
