@@ -27,21 +27,22 @@ public class PlayerScript : MonoBehaviour
         private set;
     }
 
-	public float Knockback
-	{
-		get
-		{ 
-			return m_increasingKnockbackValue;
-		}
-		private set
-		{
-			m_increasingKnockbackValue = value;
-		}
-	}
+    public float Knockback
+    {
+        get
+        {
+            return m_increasingKnockbackValue;
+        }
+        private set
+        {
+            m_increasingKnockbackValue = value;
+        }
+    }
     #endregion
 
     private const int KnockBackOffset = 10;
     private const int MaxAvaliableSpells = 2;
+    private const float MaxSpeed = 10;
 
     public Transform[] m_groundPoints;
 
@@ -72,7 +73,7 @@ public class PlayerScript : MonoBehaviour
     #endregion
 
     private bool m_isDead;
-	private int m_spellIndex = 0;
+    private int m_spellIndex = 0;
     private Globals.Direction m_direction;
     private Rigidbody2D m_rigidbody;
 
@@ -87,12 +88,12 @@ public class PlayerScript : MonoBehaviour
     private Globals.Element m_currentElement;
 
     private Animator m_characterAnimator;
-	private Globals.Element[] m_AvailableElements;
+    private Globals.Element[] m_AvailableElements;
 
-	public Sprite[] m_SpellSprites;
-	private const int m_maxAvailableSprites = 2;
-	public Image m_currentSpellImg;
-	public Image m_secondSpellSprite;
+    public Sprite[] m_SpellSprites;
+    private const int m_maxAvailableSprites = 2;
+    public Image m_currentSpellImg;
+    public Image m_secondSpellSprite;
 
     [SerializeField]
     private const float m_minKnockbackValue = 5; //(K) constant knockback, set pretty low
@@ -104,14 +105,17 @@ public class PlayerScript : MonoBehaviour
         //Needed when players are handled inbetween scenes
         //DontDestroyOnLoad(this.gameObject);
 
+        //Globals.PlayerNumber playerNumber = GetComponent<InputManagerScript>().m_playerNumber;
+
+        //SetImagePanels(playerNumber);
 
         m_rigidbody = GetComponent<Rigidbody2D>();
         m_rigidbody.freezeRotation = true;
         m_currentElement = Globals.Element.Earth;
 
         m_characterAnimator = GetComponent<Animator>();
-           
-		m_AvailableElements = new Globals.Element[MaxAvaliableSpells];
+
+        m_AvailableElements = new Globals.Element[MaxAvaliableSpells];
 
 
         m_isDead = false;
@@ -121,7 +125,7 @@ public class PlayerScript : MonoBehaviour
 
     void Update()
     {
-       
+
         m_characterAnimator.SetFloat("speedX", m_rigidbody.velocity.x);
         m_characterAnimator.SetFloat("speedY", m_rigidbody.velocity.y);
 
@@ -139,14 +143,14 @@ public class PlayerScript : MonoBehaviour
             m_rigidbody.velocity += Vector2.up * Physics2D.gravity.y * (m_fallMultiplier - 1) * Time.deltaTime;
         }
 
-		//Debug.Log (GetTeam());
-        
+        //Debug.Log (GetTeam());
+
     }
     #endregion
 
     #region Public Methods
     public Globals.Team GetTeam() { return m_team; }
-	public void SetTeam(Globals.Team team){ m_team = team; }
+    public void SetTeam(Globals.Team team) { m_team = team; }
     public void SetDirection(Globals.Direction aDirection) { m_direction = aDirection; }
 
     /// <summary>
@@ -157,12 +161,18 @@ public class PlayerScript : MonoBehaviour
     public void Move(Vector2 aMovement)
     {
         float speed = m_rigidbody.velocity.x;
+        float unsignedSpeed = m_rigidbody.velocity.x;
+        if (unsignedSpeed < 0)
+        {
+            unsignedSpeed *= -1; //If it was less than zero we make it positive
+        }
+
         if (aMovement.x == 0 && IsOnGround() || aMovement.x > 0 && speed < 0 && IsOnGround() || aMovement.x < 0 && speed > 0 && IsOnGround())
         {
             //Makes sure if we're in a jump Y-speed isn't put to 0
             m_rigidbody.velocity = new Vector2(0, m_rigidbody.velocity.y);
         }
-        else
+        else if (unsignedSpeed < MaxSpeed)
         {
             m_rigidbody.velocity += new Vector2(aMovement.x, 0);
         }
@@ -177,11 +187,12 @@ public class PlayerScript : MonoBehaviour
     }
 
 
-	public void SetElements(int aIndex, Globals.Element aElement)
-	{
-		m_AvailableElements [aIndex] = aElement;
-		Debug.Log (m_AvailableElements [aIndex].ToString());
-	}
+    public void SetElements(int aIndex, Globals.Element aElement)
+    {
+        m_AvailableElements[aIndex] = aElement;
+        Debug.Log(m_AvailableElements[aIndex].ToString());
+        //ChangeElement(); //To make sure we don't get a default starting value
+    }
 
     public void SetPosition(Vector2 aPostion)
     {
@@ -198,7 +209,7 @@ public class PlayerScript : MonoBehaviour
     /// <param name="anElementArray">An array containing the elements</param>
     public void SetElements(Globals.Element[] anElementArray)
     {
-        if(anElementArray.Length > MaxAvaliableSpells)
+        if (anElementArray.Length > MaxAvaliableSpells)
         {
             throw new System.Exception("Too many spells in ElementArray");
         }
@@ -206,6 +217,7 @@ public class PlayerScript : MonoBehaviour
         {
             //Debug.Log("Inside playerscript: " + anElementArray[0] + " " + anElementArray[1]);
             m_AvailableElements = anElementArray;
+            m_currentElement = m_AvailableElements[0]; //Current element starts at first avaliable
         }
     }
 
@@ -214,7 +226,7 @@ public class PlayerScript : MonoBehaviour
     {
         //This can prob be done better
         BasicElementScript element = m_elementFactory.BasicEarth; //Gives errors if not set to a value
-		//BasicElementScript element = m_AvailableElements[m_spellIndex];
+                                                                  //BasicElementScript element = m_AvailableElements[m_spellIndex];
 
         m_characterAnimator.SetTrigger("shooting");
         m_wandEffect.Play(m_wandEffect.transform);
@@ -234,7 +246,7 @@ public class PlayerScript : MonoBehaviour
                 element = m_elementFactory.BasicWater;
                 break;
         }
-        
+
 
         BasicElementScript tempGO = Instantiate(element, m_shootingTransform.position, new Quaternion()) as BasicElementScript;
         tempGO.SetOriginTeam(GetTeam());
@@ -247,10 +259,10 @@ public class PlayerScript : MonoBehaviour
         else if (m_direction == Globals.Direction.Left)
         {
             tempGO.SetDirection(Vector2.left);
-            tempGO.transform.localScale = new Vector3(tempGO.transform.localScale.x *-1, 
+            tempGO.transform.localScale = new Vector3(tempGO.transform.localScale.x * -1,
                                                     tempGO.transform.localScale.y, tempGO.transform.localScale.z);
         }
-        else if(m_direction == Globals.Direction.Up)//Just to make sure it works from the get-go
+        else if (m_direction == Globals.Direction.Up)//Just to make sure it works from the get-go
         {
             tempGO.SetDirection(Vector2.up);
         }
@@ -262,103 +274,32 @@ public class PlayerScript : MonoBehaviour
 
     public void ChangeElement()
     {
-        /*switch (m_currentElement)
-        {
-            case Globals.Element.Earth:
-                m_currentElement = Globals.Element.Wind;
-                m_elementIndicator.color = Color.white;
-                break;
-            case Globals.Element.Wind:
-                m_currentElement = Globals.Element.Water;
-                m_elementIndicator.color = Color.blue;
-                break;
-            case Globals.Element.Water:
-                m_currentElement = Globals.Element.Fire;
-                m_elementIndicator.color = Color.red;
-                break;
-            case Globals.Element.Fire:
-                m_currentElement = Globals.Element.Earth;
-                m_elementIndicator.color = Globals.BrownColor;
-                break;
-        }*/
-		//if (m_spellIndex == 0) 
-		//{
-		//	m_spellIndex = 1;
-		//	m_currentElement = m_AvailableElements [m_spellIndex];
-		//} 
-		//else 
-		//{
-		//	m_spellIndex = 0;
-		//	m_currentElement = m_AvailableElements [m_spellIndex];
-		//}
-
         m_spellIndex = ++m_spellIndex % MaxAvaliableSpells;
         m_currentElement = m_AvailableElements[m_spellIndex];
-		Debug.Log (m_currentElement.ToString() + " " +  m_spellIndex);
+        ChangeElementUI();
+        Debug.Log(m_currentElement.ToString() + " " + m_spellIndex);
 
-		if (m_currentElement.Equals(Globals.Element.Earth)) 
-		{
-			Debug.Log ("changed element to earth");
-			m_currentSpellImg.sprite = m_SpellSprites [0];
-		}
-		else if(m_currentElement.Equals(Globals.Element.Fire)) 
-		{
-			Debug.Log ("changed element to fire");
-			m_currentSpellImg.sprite = m_SpellSprites [1];
-		}
-		else if(m_currentElement.Equals(Globals.Element.Water)) 
-		{
-			Debug.Log ("changed element to water");
-			m_currentSpellImg.sprite = m_SpellSprites [2];
-		}
-		else if(m_currentElement.Equals(Globals.Element.Wind)) 
-		{
-			Debug.Log ("changed element to wind");
-			m_currentSpellImg.sprite = m_SpellSprites [3];
-		}
-		if(m_spellIndex == 1) 
-		{
-			if(m_AvailableElements[m_spellIndex-1].Equals(Globals.Element.Earth))
-			{
-				m_secondSpellSprite.sprite = m_SpellSprites [0];
-			}
-			else if(m_AvailableElements[m_spellIndex-1].Equals(Globals.Element.Fire))
-			{
-				m_secondSpellSprite.sprite = m_SpellSprites [1];
-			}
-			else if(m_AvailableElements[m_spellIndex-1].Equals(Globals.Element.Water))
-			{
-				m_secondSpellSprite.sprite = m_SpellSprites [2];
-			}
-			else if(m_AvailableElements[m_spellIndex-1].Equals(Globals.Element.Wind))
-			{
-				m_secondSpellSprite.sprite = m_SpellSprites [3];
-			}
-		}
-		else if(m_spellIndex == 0) 
-		{
-			if(m_AvailableElements[m_spellIndex+1].Equals(Globals.Element.Earth))
-			{
-				m_secondSpellSprite.sprite = m_SpellSprites [0];
-			}
-			else if(m_AvailableElements[m_spellIndex+1].Equals(Globals.Element.Fire))
-			{
-				m_secondSpellSprite.sprite = m_SpellSprites [1];
-			}
-			else if(m_AvailableElements[m_spellIndex+1].Equals(Globals.Element.Water))
-			{
-				m_secondSpellSprite.sprite = m_SpellSprites [2];
-			}
-			else if(m_AvailableElements[m_spellIndex+1].Equals(Globals.Element.Wind))
-			{
-				m_secondSpellSprite.sprite = m_SpellSprites [3];
-			}
-		}
+
     }
 
     public void Jump()
     {
         m_rigidbody.velocity += Vector2.up * m_jumpSpeed;
+    }
+
+    /// <summary>
+    /// Public method to find ImagePanels
+    /// Has to be public otherwise we can't find them after scenechange
+    /// </summary>
+    /// <param name="aNumber"></param>
+    public void SetImagePanels(Globals.PlayerNumber aNumber)
+    {
+        int number = (int)aNumber + 1;
+        Debug.Log("Image_Player" + number + "Portrait");
+        m_currentSpellImg = GameObject.Find("Image_Player" + number + "Portrait").GetComponent<Image>();
+        m_secondSpellSprite = GameObject.Find("Image_Player" + number + "Spell2").GetComponent<Image>();
+        //Debug.Log(")
+        ChangeElement();
     }
 
     public bool IsOnGround()
@@ -388,9 +329,9 @@ public class PlayerScript : MonoBehaviour
     {
         m_takingDamage = true;
         m_characterAnimator.SetTrigger("knockbacked");
-        m_getHitVoice.Play();  
+        m_getHitVoice.Play();
 
-	    Knockback += aDmgTaken;
+        Knockback += aDmgTaken;
         m_rigidbody.AddForce(transform.up * m_minKnockbackValue, ForceMode2D.Impulse);
 
         if (aKnockedFromRight)
@@ -401,7 +342,71 @@ public class PlayerScript : MonoBehaviour
         {
             m_rigidbody.AddForce(transform.right * (m_minKnockbackValue + CalculateKnockBack()), ForceMode2D.Impulse);
         }
-       
+
+    }
+
+    public void ChangeElementUI()
+    {
+
+        if (m_currentElement.Equals(Globals.Element.Earth))
+        {
+            //Debug.Log ("changed element to earth");
+            m_currentSpellImg.sprite = m_SpellSprites[0];
+        }
+        else if (m_currentElement.Equals(Globals.Element.Fire))
+        {
+            //Debug.Log ("changed element to fire");
+            m_currentSpellImg.sprite = m_SpellSprites[1];
+        }
+        else if (m_currentElement.Equals(Globals.Element.Water))
+        {
+            //Debug.Log ("changed element to water");
+            m_currentSpellImg.sprite = m_SpellSprites[2];
+        }
+        else if (m_currentElement.Equals(Globals.Element.Wind))
+        {
+            //Debug.Log ("changed element to wind");
+            m_currentSpellImg.sprite = m_SpellSprites[3];
+        }
+        if (m_spellIndex == 1)
+        {
+            if (m_AvailableElements[m_spellIndex - 1].Equals(Globals.Element.Earth))
+            {
+                m_secondSpellSprite.sprite = m_SpellSprites[0];
+            }
+            else if (m_AvailableElements[m_spellIndex - 1].Equals(Globals.Element.Fire))
+            {
+                m_secondSpellSprite.sprite = m_SpellSprites[1];
+            }
+            else if (m_AvailableElements[m_spellIndex - 1].Equals(Globals.Element.Water))
+            {
+                m_secondSpellSprite.sprite = m_SpellSprites[2];
+            }
+            else if (m_AvailableElements[m_spellIndex - 1].Equals(Globals.Element.Wind))
+            {
+                m_secondSpellSprite.sprite = m_SpellSprites[3];
+            }
+        }
+        else if (m_spellIndex == 0)
+        {
+            if (m_AvailableElements[m_spellIndex + 1].Equals(Globals.Element.Earth))
+            {
+                m_secondSpellSprite.sprite = m_SpellSprites[0];
+            }
+            else if (m_AvailableElements[m_spellIndex + 1].Equals(Globals.Element.Fire))
+            {
+                m_secondSpellSprite.sprite = m_SpellSprites[1];
+            }
+            else if (m_AvailableElements[m_spellIndex + 1].Equals(Globals.Element.Water))
+            {
+                m_secondSpellSprite.sprite = m_SpellSprites[2];
+            }
+            else if (m_AvailableElements[m_spellIndex + 1].Equals(Globals.Element.Wind))
+            {
+                m_secondSpellSprite.sprite = m_SpellSprites[3];
+            }
+        }
+
     }
 
     public void PlayKnockedOutVoice()
@@ -411,16 +416,18 @@ public class PlayerScript : MonoBehaviour
     #endregion
 
     #region Private methods
+
+
     private void HandleDeath()
-    {      
+    {
         deathTime += Time.deltaTime;
         m_rigidbody.velocity = Vector2.zero;
-		Knockback = 0;
+        Knockback = 0;
     }
 
     private void OnTriggerEnter2D(Collider2D aCollider)
     {
-        if(aCollider.tag == "Health")
+        if (aCollider.tag == "Health")
         {
             m_takingPowerUp = true;
             m_healthPickupEffect.Play(m_rigidbody.transform);
@@ -442,7 +449,7 @@ public class PlayerScript : MonoBehaviour
         {
             transform.parent = aCollision.transform;
         }
-        
+
 
     }
 
@@ -459,7 +466,7 @@ public class PlayerScript : MonoBehaviour
     {
         const float value = 1.05f; //(Y) constant value used to multiply the X value the larger it becomes
         Debug.Log(Knockback);
-		return Mathf.Pow(Knockback/KnockBackOffset, value); // K+(X^Y)
+        return Mathf.Pow(Knockback / KnockBackOffset, value); // K+(X^Y)
     }
     #endregion
 }
