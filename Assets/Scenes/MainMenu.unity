@@ -1202,6 +1202,12 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 285541801}
+--- !u!114 &287501725 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114580429992147944, guid: 5de7504356c423c46916f1965a38aa3a,
+    type: 2}
+  m_PrefabInternal: {fileID: 892769041}
+  m_Script: {fileID: 11500000, guid: 133ba679a4fd13c47bf2cb8ae0ff591e, type: 3}
 --- !u!1 &318847401
 GameObject:
   m_ObjectHideFlags: 0
@@ -1500,7 +1506,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_LosingTeam: 
-  m_players: []
+  m_players:
+  - {fileID: 591030173}
+  - {fileID: 893826186}
+  - {fileID: 287501725}
+  - {fileID: 816323524}
 --- !u!4 &346794117
 Transform:
   m_ObjectHideFlags: 0
@@ -2243,6 +2253,12 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 535945463}
+--- !u!114 &591030173 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114139882123927096, guid: c8d8b5e4238ba0a44b4b6524a6fd54d6,
+    type: 2}
+  m_PrefabInternal: {fileID: 987273263}
+  m_Script: {fileID: 11500000, guid: 133ba679a4fd13c47bf2cb8ae0ff591e, type: 3}
 --- !u!1 &591548159
 GameObject:
   m_ObjectHideFlags: 0
@@ -3203,6 +3219,12 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 805276335}
+--- !u!114 &816323524 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114205637295120492, guid: da166d98c78493e429eaad44fb5785b6,
+    type: 2}
+  m_PrefabInternal: {fileID: 140584003}
+  m_Script: {fileID: 11500000, guid: 133ba679a4fd13c47bf2cb8ae0ff591e, type: 3}
 --- !u!1 &854141820
 GameObject:
   m_ObjectHideFlags: 0
@@ -3545,6 +3567,12 @@ Transform:
   m_PrefabParentObject: {fileID: 4294399083470908, guid: 5de7504356c423c46916f1965a38aa3a,
     type: 2}
   m_PrefabInternal: {fileID: 892769041}
+--- !u!114 &893826186 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114451632941238026, guid: 7e656614f9f1256419145de510e1f3dd,
+    type: 2}
+  m_PrefabInternal: {fileID: 488893994}
+  m_Script: {fileID: 11500000, guid: 133ba679a4fd13c47bf2cb8ae0ff591e, type: 3}
 --- !u!1 &907686909
 GameObject:
   m_ObjectHideFlags: 0
