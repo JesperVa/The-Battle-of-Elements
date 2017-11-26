@@ -6052,11 +6052,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b874284c7b673e94790263691c4048ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainMenuScript: {fileID: 0}
   m_Players:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1191350554}
+  - {fileID: 1365236798}
+  - {fileID: 10536431}
+  - {fileID: 1485357235}
   MapChoice: DevScene
 --- !u!4 &1344136230
 Transform:
