@@ -16,6 +16,7 @@ public class CSMaster : MonoBehaviour {
     [SerializeField]
     private List<CharacterSelect> m_Players;
 
+    private bool hasLoaded;
     public string MapChoice;
     
     private int readyUps;
