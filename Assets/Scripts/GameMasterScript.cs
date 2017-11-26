@@ -181,7 +181,11 @@ public class GameMasterScript : SingletonScript<GameMasterScript>
                 if (pPos.x > m_DeathPositions[0].position.x || pPos.x < m_DeathPositions[1].position.x || pPos.y < m_DeathPositions[2].position.y)
                 {
                     m_Camera.RemoveTarget(player.transform);
-                    
+
+                    //Moves the player far down to make sure he isn't seen
+                    //Pretty bad fix tbh
+                    player.SetPosition(m_DeathPositions[2].position * 10); 
+
 					player.PlayKnockedOutVoice();
                     player.isDead = true;
 					m_cameraShake.ShakeCamera (m_cameraShakeAmount, 0.3f);
