@@ -10047,6 +10047,19 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2109420087}
+--- !u!1 &2112236564 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1510042912969156, guid: 8b5cdc7e66988a54b84e30af7592592e,
+    type: 2}
+  m_PrefabInternal: {fileID: 829080765}
+--- !u!45 &2112236566
+Skybox:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2112236564}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 2100000, guid: f0a77157ff6daa94cba364395cdc3e7e, type: 2}
 --- !u!1001 &2117947202
 Prefab:
   m_ObjectHideFlags: 0
