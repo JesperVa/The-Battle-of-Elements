@@ -5816,7 +5816,7 @@ Transform:
   m_Children:
   - {fileID: 1291480314}
   m_Father: {fileID: 1000063676}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &634563450
 Prefab:
@@ -6255,7 +6255,7 @@ Transform:
   m_Children:
   - {fileID: 1956525239}
   m_Father: {fileID: 1000063676}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &793424367
 GameObject:
@@ -7318,8 +7318,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 605679462}
   - {fileID: 792393433}
+  - {fileID: 605679462}
   - {fileID: 1239388177}
   - {fileID: 159607374}
   m_Father: {fileID: 792385021}
@@ -17897,11 +17897,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 712651513}
     m_Modifications:
-    - target: {fileID: 114105105075607346, guid: 87be7eafdfae36a4d8a9668667680b2c,
-        type: 2}
-      propertyPath: m_respawnParticles.Array.size
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 4673822833849112, guid: 87be7eafdfae36a4d8a9668667680b2c, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -17936,9 +17931,24 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114105105075607346, guid: 87be7eafdfae36a4d8a9668667680b2c,
         type: 2}
-      propertyPath: m_respawnParticles
+      propertyPath: m_respawnParticles.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1291480315}
+    - target: {fileID: 114105105075607346, guid: 87be7eafdfae36a4d8a9668667680b2c,
+        type: 2}
+      propertyPath: m_respawnParticles.Array.data[1]
+      value: 
+      objectReference: {fileID: 1956525240}
+    - target: {fileID: 114105105075607346, guid: 87be7eafdfae36a4d8a9668667680b2c,
+        type: 2}
+      propertyPath: m_respawnParticles.Array.data[2]
+      value: 
+      objectReference: {fileID: 1929626901}
+    - target: {fileID: 114105105075607346, guid: 87be7eafdfae36a4d8a9668667680b2c,
+        type: 2}
+      propertyPath: m_respawnParticles.Array.data[3]
+      value: 
+      objectReference: {fileID: 1705289500}
     - target: {fileID: 114105105075607346, guid: 87be7eafdfae36a4d8a9668667680b2c,
         type: 2}
       propertyPath: m_DeathPositions.Array.data[0]
@@ -17979,26 +17989,6 @@ Prefab:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 174848431}
-    - target: {fileID: 114105105075607346, guid: 87be7eafdfae36a4d8a9668667680b2c,
-        type: 2}
-      propertyPath: m_respawnParticles.Array.data[0]
-      value: 
-      objectReference: {fileID: 1291480315}
-    - target: {fileID: 114105105075607346, guid: 87be7eafdfae36a4d8a9668667680b2c,
-        type: 2}
-      propertyPath: m_respawnParticles.Array.data[1]
-      value: 
-      objectReference: {fileID: 1956525240}
-    - target: {fileID: 114105105075607346, guid: 87be7eafdfae36a4d8a9668667680b2c,
-        type: 2}
-      propertyPath: m_respawnParticles.Array.data[2]
-      value: 
-      objectReference: {fileID: 1929626901}
-    - target: {fileID: 114105105075607346, guid: 87be7eafdfae36a4d8a9668667680b2c,
-        type: 2}
-      propertyPath: m_respawnParticles.Array.data[3]
-      value: 
-      objectReference: {fileID: 1705289500}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 87be7eafdfae36a4d8a9668667680b2c, type: 2}
   m_IsPrefabParent: 0
