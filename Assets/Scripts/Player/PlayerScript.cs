@@ -265,11 +265,18 @@ public class PlayerScript : MonoBehaviour
         }
         else if (m_direction == Globals.Direction.Up)//Just to make sure it works from the get-go
         {
-            tempGO.SetDirection(Vector2.up);
+            //Direction is set to right because the rotation that will be done will change what is up/down for the object
+            tempGO.SetDirection(Vector2.right);
+            //tempGO.GetComponent<Transform>().rotation.Set(0, 0, 90f, 0);
+            tempGO.GetComponent<Transform>().Rotate(0, 0, 90f);
+            Debug.Log("We tried to rotate spell upwards");
         }
         else if (m_direction == Globals.Direction.Down)//Just to make sure it works from the get-go
         {
-            tempGO.SetDirection(Vector2.down);
+
+            tempGO.SetDirection(Vector2.right);
+            //tempGO.GetComponent<Transform>().rotation.Set(0, 0, -90f, 0);
+            tempGO.GetComponent<Transform>().Rotate(0, 0, -90f);
         }
     }
 
