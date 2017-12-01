@@ -16,6 +16,9 @@ public class CSMaster : MonoBehaviour {
     [SerializeField]
     private List<CharacterSelect> m_Players;
 
+    [SerializeField]
+    private SceneChanger m_SceneChanger;
+
     private bool hasLoaded;
     public string MapChoice;
     
@@ -56,7 +59,8 @@ public class CSMaster : MonoBehaviour {
 		if(readyUps == AmountOfPlayers && Mathf.Max(playersPerTeam) <= MaxPlayersPerTeam)
         {
             //mainMenuScript.PlayLevel();
-            SceneChanger.Instance.StartUpGame(mainMenuScript.chosenLevel);
+            //SceneChanger.Instance.StartUpGame(mainMenuScript.chosenLevel);
+            m_SceneChanger.StartUpGame(mainMenuScript.chosenLevel);
             
         }
 
