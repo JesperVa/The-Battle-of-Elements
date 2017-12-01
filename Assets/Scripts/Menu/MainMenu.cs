@@ -31,9 +31,18 @@ public class MainMenu : MonoBehaviour
 
     void Awake()
     {
-        OptionsCanvas.gameObject.SetActive(false);
-        SelectLevelCanvas.gameObject.SetActive(false);
-        SelectCharacterCanvas.gameObject.SetActive(false); 
+		if (EndGameMenu.m_newGame) {
+			LevelSelectOn ();
+			EndGameMenu.m_newGame = false;
+		} 
+		else 
+		{
+			OptionsCanvas.gameObject.SetActive(false);
+			SelectLevelCanvas.gameObject.SetActive(false);
+			SelectCharacterCanvas.gameObject.SetActive(false); 
+		}
+
+      
 
 	//m_soundManager = SoundManagerScript.Instance;
 	//m_soundManager.Play (m_menuSongName, true);
