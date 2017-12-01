@@ -17,6 +17,9 @@ public class CharacterSelect : MonoBehaviour
     [System.NonSerialized]
     public bool m_isReady = false;
 
+    [SerializeField]
+    private SceneChanger m_sceneChanger;
+
     private Globals.Element[] m_ChosenElements;
 
     public Text m_SpellOneText;
@@ -148,14 +151,14 @@ public class CharacterSelect : MonoBehaviour
         if (!m_isReady)
         {
             m_playerdata.ElementArray = m_ChosenElements;
-            SceneChanger.Instance.AddPlayer(m_playerdata);
+            m_sceneChanger.AddPlayer(m_playerdata);
             AmountOfReadyUps++;
             m_isReady = true;
 
         }
         else
         {
-            SceneChanger.Instance.RemovePlayer(m_playerdata);
+            m_sceneChanger.RemovePlayer(m_playerdata);
             AmountOfReadyUps--;
             m_isReady = false;
         }

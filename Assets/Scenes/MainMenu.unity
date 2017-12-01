@@ -164,6 +164,7 @@ MonoBehaviour:
   - Water
   - Wind
   - Earth
+  m_sceneChanger: {fileID: 346794116}
   m_SpellOneText: {fileID: 342404704}
   m_SpellTwoText: {fileID: 318847402}
   m_TeamText: {fileID: 219348467}
@@ -1760,6 +1761,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SpellList: []
+  m_sceneChanger: {fileID: 0}
   m_SpellOneText: {fileID: 0}
   m_SpellTwoText: {fileID: 0}
   m_TeamText: {fileID: 0}
@@ -5577,6 +5579,7 @@ MonoBehaviour:
   - Water
   - Wind
   - Earth
+  m_sceneChanger: {fileID: 346794116}
   m_SpellOneText: {fileID: 1311580471}
   m_SpellTwoText: {fileID: 56838035}
   m_TeamText: {fileID: 754106381}
@@ -6501,6 +6504,7 @@ MonoBehaviour:
   - Water
   - Wind
   - Earth
+  m_sceneChanger: {fileID: 346794116}
   m_SpellOneText: {fileID: 724785483}
   m_SpellTwoText: {fileID: 767901705}
   m_TeamText: {fileID: 734820146}
@@ -6954,6 +6958,7 @@ MonoBehaviour:
   - Water
   - Wind
   - Earth
+  m_sceneChanger: {fileID: 346794116}
   m_SpellOneText: {fileID: 977439983}
   m_SpellTwoText: {fileID: 720694529}
   m_TeamText: {fileID: 1182947188}
