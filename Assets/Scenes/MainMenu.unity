@@ -6362,6 +6362,7 @@ MonoBehaviour:
   - {fileID: 1365236798}
   - {fileID: 10536431}
   - {fileID: 1485357235}
+  m_SceneChanger: {fileID: 346794116}
   MapChoice: DevScene
 --- !u!4 &1344136230
 Transform:
