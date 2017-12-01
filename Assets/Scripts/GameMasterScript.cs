@@ -115,12 +115,14 @@ public class GameMasterScript : SingletonScript<GameMasterScript>
 
             //Debug.Log(((int)m_CurrentLives[player.GetTeam()] > 0) + " " + player.isDead + " " + (player.deathTime > m_RespawnTime));
 
-            if ((int)m_CurrentLives[m_Players[i].GetTeam()] > 0 && m_Players[i].isDead && m_Players[i].deathTime > m_RespawnTime)
+            if ((int)m_CurrentLives[m_Players[i].GetTeam()] > 0 && m_Players[i].isDead && m_Players[i].deathTime > m_RespawnTime && !m_Players[i].isRespawning)
             {
                 m_randRespawnValue[i] = (int)(Random.value * m_RespawnPositions.Length - 1);
                 if (!m_respawnParticles[m_randRespawnValue[i]].isPlaying)
                 {
                     m_respawnParticles[m_randRespawnValue[i]].Play(m_RespawnPositions[m_randRespawnValue[i]].transform);
+                    Debug.Log("How often does thi trigger? Dead player: " + i);
+                    m_Players[i].isRespawning = true;
                     //m_Camera.AddTarget(m_RespawnPositions[m_randRespawnValue[i]].transform);
                 }
                 
@@ -144,6 +146,7 @@ public class GameMasterScript : SingletonScript<GameMasterScript>
                 m_Camera.AddTarget(m_Players[i].transform);
                 //Debug.Log(m_Camera.Targets());
                 m_Players[i].isDead = false;
+                m_Players[i].isRespawning = false;
             }
         }
     }

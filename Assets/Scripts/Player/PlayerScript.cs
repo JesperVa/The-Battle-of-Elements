@@ -6,6 +6,12 @@ using UnityEngine.UI;
 public class PlayerScript : MonoBehaviour
 {
     #region Properties
+    public bool isRespawning
+    {
+        get;
+        set;
+    }
+
     public bool isDead
     {
         get
