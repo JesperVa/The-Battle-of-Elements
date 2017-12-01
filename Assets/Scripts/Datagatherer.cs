@@ -35,6 +35,7 @@ public class Datagatherer : SingletonScript<Datagatherer> {
                 if (!m_players[i].isDead) //Only record data if player is alive
                 {
                     m_positions[i].Add(m_players[i].transform.position);
+                    //Debug.Log("Update");
                 }
             }
             TimeSinceLastUpdate = 0;
