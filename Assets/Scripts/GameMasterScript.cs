@@ -123,11 +123,13 @@ public class GameMasterScript : SingletonScript<GameMasterScript>
                     m_respawnParticles[m_randRespawnValue[i]].Play(m_RespawnPositions[m_randRespawnValue[i]].transform);
                     //m_Camera.AddTarget(m_RespawnPositions[m_randRespawnValue[i]].transform);
                 }
+                
 
                 //m_Camera.AddTarget(m_RespawnPositions[m_randRespawnValue].transform);
 
                 Invoke("RespawnPlayer", 1.2f);
             }
+            
         }
     }
 
