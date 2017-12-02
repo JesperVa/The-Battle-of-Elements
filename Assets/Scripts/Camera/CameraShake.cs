@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraShake : MonoBehaviour 
 {
-	public Camera m_mainCamera;
+	private Camera m_mainCamera;
 
 	float m_shakeAmount = 0;
 
@@ -12,8 +12,7 @@ public class CameraShake : MonoBehaviour
 
 	void Awake ()
 	{
-		if (m_mainCamera == null)
-			m_mainCamera = Camera.main;
+		m_mainCamera = GetComponent<Camera> ();
 	}
 	
 	// Update is called once per frame

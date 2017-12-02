@@ -3729,6 +3729,17 @@ Skybox:
   m_GameObject: {fileID: 829080766}
   m_Enabled: 1
   m_CustomSkybox: {fileID: 2100000, guid: f0a77157ff6daa94cba364395cdc3e7e, type: 2}
+--- !u!114 &829080768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 829080766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59cefcdfe6871b64c9ad66e2a2193eae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &839016567
 GameObject:
   m_ObjectHideFlags: 0
@@ -7700,6 +7711,11 @@ Prefab:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 174848431}
+    - target: {fileID: 114105105075607346, guid: 87be7eafdfae36a4d8a9668667680b2c,
+        type: 2}
+      propertyPath: m_cameraShake
+      value: 
+      objectReference: {fileID: 829080768}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 87be7eafdfae36a4d8a9668667680b2c, type: 2}
   m_IsPrefabParent: 0

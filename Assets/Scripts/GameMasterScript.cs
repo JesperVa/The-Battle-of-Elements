@@ -22,8 +22,8 @@ public class GameMasterScript : SingletonScript<GameMasterScript>
     private int m_RespawnTime;
     [SerializeField]
     private CameraControl m_Camera;
-    //[SerializeField]
-    //private CameraShake m_cameraShake;
+    [SerializeField]
+    private CameraShake m_cameraShake;
     [SerializeField]
     private float m_cameraShakeAmount = 0.3f;
     [SerializeField]
@@ -217,7 +217,7 @@ public class GameMasterScript : SingletonScript<GameMasterScript>
                     player.PlayKnockedOutVoice();
                     player.isDead = true;
                     //TODO: Look into why camerashake kills the code
-                   // m_cameraShake.ShakeCamera(m_cameraShakeAmount, 0.3f);
+                    m_cameraShake.ShakeCamera(m_cameraShakeAmount, 0.3f);
                     //Gives errors if I try to do this in a cleaner way :(
                     int temp = (int)m_CurrentLives[player.GetTeam()];
                     temp -= 1;
