@@ -1665,7 +1665,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 332356757}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9eccc8d63a2c6804ea5d3acc1fa41f44, type: 3}
   m_Name: 

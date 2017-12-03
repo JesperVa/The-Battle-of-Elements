@@ -1646,7 +1646,6 @@ GameObject:
   - component: {fileID: 396109543}
   - component: {fileID: 396109542}
   - component: {fileID: 396109545}
-  - component: {fileID: 396109546}
   m_Layer: 5
   m_Name: SelectCharacterCanvas
   m_TagString: Untagged
@@ -1749,23 +1748,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventSystem: {fileID: 259588417}
   selectedObject: {fileID: 284998377}
---- !u!114 &396109546
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 396109540}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de097c3d413ce964fba351837d906a29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SpellList: []
-  m_sceneChanger: {fileID: 0}
-  m_SpellOneText: {fileID: 0}
-  m_SpellTwoText: {fileID: 0}
-  m_TeamText: {fileID: 0}
-  m_Element: {fileID: 0}
 --- !u!1 &402970979
 GameObject:
   m_ObjectHideFlags: 0

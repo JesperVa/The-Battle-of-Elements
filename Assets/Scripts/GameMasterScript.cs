@@ -132,7 +132,7 @@ public class GameMasterScript : SingletonScript<GameMasterScript>
                 if (!m_respawnParticles[m_randRespawnValue[i]].isPlaying)
                 {
                     m_respawnParticles[m_randRespawnValue[i]].Play(m_RespawnPositions[m_randRespawnValue[i]].transform);
-                    Debug.Log("How often does thi trigger? Dead player: " + i);
+                    //Debug.Log("How often does thi trigger? Dead player: " + i);
                     m_Players[i].isRespawning = true;
                     //m_Camera.AddTarget(m_RespawnPositions[m_randRespawnValue[i]].transform);
                 }

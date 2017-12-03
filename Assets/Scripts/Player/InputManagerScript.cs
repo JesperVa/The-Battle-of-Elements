@@ -275,26 +275,29 @@ public class InputManagerScript : MonoBehaviour
 
 	private void GetControllerType()
 	{
-		m_keyboard = false;
-		string[] names = Input.GetJoystickNames();
+        m_keyboard = true;
+        string[] names = Input.GetJoystickNames();
 
-		if (names.Length != 0)
-		{
-				//print(names[(int)m_playerNumber].Length);
-			if (names [(int)m_playerNumber].Length == 19)
-			{
-				m_thisControllerName = "_ps_";
-				print("PS4 CONTROLLER IS CONNECTED");
-			}
-			if (names [(int)m_playerNumber].Length == 33)
-			{
-				m_thisControllerName = "_xbox_";
-				print("XBOX ONE CONTROLLER IS CONNECTED");
-			}
-			if (names [(int)m_playerNumber].Length == 0)
-			{
-				m_keyboard = true;
-			}
-		}
-	}
+        if (names.Length > (int)m_playerNumber && names.Length != 0)
+        {
+
+            if (names[(int)m_playerNumber].Length == 19)
+            {
+                m_thisControllerName = "_ps_";
+                print("PS4 CONTROLLER IS CONNECTED");
+                m_keyboard = false;
+            }
+            if (names[(int)m_playerNumber].Length == 33)
+            {
+                m_thisControllerName = "_xbox_";
+                print("XBOX ONE CONTROLLER IS CONNECTED");
+                m_keyboard = false;
+            }
+            if (names[(int)m_playerNumber].Length == 0)
+            {
+                m_keyboard = true;
+            }
+        }
+
+    }
 }
