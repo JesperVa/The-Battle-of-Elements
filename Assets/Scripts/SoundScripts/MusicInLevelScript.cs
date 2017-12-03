@@ -21,7 +21,7 @@ public class MusicInLevelScript : MonoBehaviour
         if (!m_intro.isPlaying && !startedLoop)
         {
             m_loop.Play();
-            Debug.Log("Done playing");
+            //Debug.Log("Done playing");
             startedLoop = true;
         }
     }

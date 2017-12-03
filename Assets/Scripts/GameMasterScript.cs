@@ -28,6 +28,8 @@ public class GameMasterScript : SingletonScript<GameMasterScript>
     private float m_cameraShakeAmount = 0.3f;
     [SerializeField]
     private int m_TeamLives;
+    [SerializeField]
+    private Datagatherer m_dataGatherer;
 
     //Used for initalisation
     [SerializeField]
@@ -86,12 +88,19 @@ public class GameMasterScript : SingletonScript<GameMasterScript>
             player.deathTime = m_RespawnTime + 1;
             player.isDead = true;
 
-            Debug.Log(player.deathTime);
+            //Debug.Log(player.deathTime);
         }
 
         RespawnPlayer();
 
-        Datagatherer.Instance.StartRecording(m_Players);
+        if (m_dataGatherer != null)
+        {
+            m_dataGatherer.StartRecording(m_Players);
+        }
+        else
+        {
+            Datagatherer.Instance.StartRecording(m_Players);
+        }
 
         //Debug.Log("In here we have: " + aPlayerList.Count);
 
@@ -117,11 +126,11 @@ public class GameMasterScript : SingletonScript<GameMasterScript>
 
             if ((int)m_CurrentLives[m_Players[i].GetTeam()] > 0 && m_Players[i].isDead && m_Players[i].deathTime > m_RespawnTime && !m_Players[i].isRespawning)
             {
-                
+
                 m_randRespawnValue[i] = (int)(Random.value * m_RespawnPositions.Length);
                 for (int j = 0; j < m_randRespawnValue.Length; j++)
                 {
-                    if(j != i && m_randRespawnValue[i]  == m_randRespawnValue[j])
+                    if (j != i && m_randRespawnValue[i] == m_randRespawnValue[j])
                     {
                         m_randRespawnValue[i] = (int)(Random.value * m_RespawnPositions.Length);
                         j = 0;
@@ -136,13 +145,13 @@ public class GameMasterScript : SingletonScript<GameMasterScript>
                     m_Players[i].isRespawning = true;
                     //m_Camera.AddTarget(m_RespawnPositions[m_randRespawnValue[i]].transform);
                 }
-                
+
 
                 //m_Camera.AddTarget(m_RespawnPositions[m_randRespawnValue].transform);
 
                 Invoke("RespawnPlayer", 1.2f);
             }
-            
+
         }
     }
 
@@ -184,7 +193,14 @@ public class GameMasterScript : SingletonScript<GameMasterScript>
         {
             m_gameHasEnded = true;
             Debug.Log("Game Over");
-            Datagatherer.Instance.StopRecording();
+
+            if(m_dataGatherer != null)
+            {
+                m_dataGatherer.StopRecording();
+            }
+            {
+                Datagatherer.Instance.StopRecording();
+            }
             //Logic for what happens when the game ends
             GameWon();
         }

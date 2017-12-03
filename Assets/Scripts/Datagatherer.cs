@@ -48,6 +48,7 @@ public class Datagatherer : SingletonScript<Datagatherer> {
     /// <param name="aPlayerList">Players to record data from</param>
     public void StartRecording(List<PlayerScript> aPlayerList)
     {
+        //Debug.Log("This call was made");
         m_players = aPlayerList;
         isRecordingData = true;
         m_positions = new List<Vector2>[aPlayerList.Count];

@@ -291,7 +291,7 @@ public class PlayerScript : MonoBehaviour
         m_spellIndex = ++m_spellIndex % MaxAvaliableSpells;
         m_currentElement = m_AvailableElements[m_spellIndex];
         ChangeElementUI();
-        Debug.Log(m_currentElement.ToString() + " " + m_spellIndex);
+        //Debug.Log(m_currentElement.ToString() + " " + m_spellIndex);
 
 
     }
@@ -309,7 +309,7 @@ public class PlayerScript : MonoBehaviour
     public void SetImagePanels(Globals.PlayerNumber aNumber)
     {
         int number = (int)aNumber + 1;
-        Debug.Log("Image_Player" + number + "Portrait");
+        //Debug.Log("Image_Player" + number + "Portrait");
         m_currentSpellImg = GameObject.Find("Image_Player" + number + "Portrait").GetComponent<Image>();
         m_secondSpellSprite = GameObject.Find("Image_Player" + number + "Spell2").GetComponent<Image>();
         //Debug.Log(")
