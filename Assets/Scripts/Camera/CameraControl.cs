@@ -104,11 +104,7 @@ public class CameraControl : MonoBehaviour
 
 	public void RemoveTarget(Transform aTargetTransform)
 	{
-        Debug.Log("We tried to remove " + aTargetTransform.gameObject);
-        Debug.Log(m_targets.Count);
 		m_targets.Remove (aTargetTransform);
-        Debug.Log("We did it");
-        Debug.Log(m_targets.Count);
     }
 
 	public void AddTarget(Transform aTargetTransform)

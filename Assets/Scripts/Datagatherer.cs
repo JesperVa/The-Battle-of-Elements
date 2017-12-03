@@ -77,7 +77,11 @@ public class Datagatherer : SingletonScript<Datagatherer> {
         fileName = string.Format(fileName, count.Length);
 
         BoxCollider2D[] platforms = GameObject.Find("Platforms").GetComponentsInChildren<BoxCollider2D>();
-         
+
+        //foreach (BoxCollider2D platform in platforms)
+        //{
+        //    Debug.Log(platform.gameObject);
+        //} 
 
         using (FileStream fs = File.Create(appDataPath + fileName))
         {
@@ -94,12 +98,16 @@ public class Datagatherer : SingletonScript<Datagatherer> {
 
             foreach (BoxCollider2D platform in platforms)
             {
-                Vector3 scale = platform.GetComponent<Transform>().localScale;
-                float X = platform.transform.position.x;
-                float Y = platform.transform.position.y;
-                float Width = platform.size.x * scale.x;
-                float Height = platform.size.y * scale.y;
-                AddText(fs, X.ToString() + "," + Y.ToString() + ":" + Width + "," + Height + ";");
+                //Because players can be children to platforms during runtime
+                if (platform.gameObject.tag != "Player") 
+                {
+                    Vector3 scale = platform.GetComponent<Transform>().localScale;
+                    float X = platform.transform.position.x + platform.offset.x;
+                    float Y = platform.transform.position.y + platform.offset.y;
+                    float Width = platform.size.x * scale.x;
+                    float Height = platform.size.y * scale.y;
+                    AddText(fs, X.ToString() + "," + Y.ToString() + ":" + Width + "," + Height + ";");
+                }
             }
         }
     }
