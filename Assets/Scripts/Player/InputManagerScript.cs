@@ -23,6 +23,8 @@ public class InputManagerScript : MonoBehaviour
 	[SerializeField]
 	private bool m_keyboard = true;
 
+    public bool m_isActive = false;
+
 	private float m_momentum;
 
 	private Vector2 m_inputs;
@@ -67,14 +69,17 @@ public class InputManagerScript : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-        m_timeSinceLastShot += Time.deltaTime;
+        if (m_isActive)
+        {
+            m_timeSinceLastShot += Time.deltaTime;
 
-        //m_characterAnimator.SetBool("shooting", true);
+            //m_characterAnimator.SetBool("shooting", true);
 
-        HandleInput ();
-		HandleDirection ();
-		HandleMovement ();
-        Flip();
+            HandleInput();
+            HandleDirection();
+            HandleMovement();
+            Flip();
+        }
 
         
         //m_characterYmovement = Input.GetAxis("Vertical");
@@ -270,7 +275,7 @@ public class InputManagerScript : MonoBehaviour
 
     private void Flip()
     {
-        if (m_inputs.x > 0.5f && !m_facingRight || m_inputs.x < -0.5f && m_facingRight)
+        if (m_inputs.x > 0.5f  && !m_facingRight || m_inputs.x < -0.5f && m_facingRight)
         {
             m_facingRight = !m_facingRight;
 
