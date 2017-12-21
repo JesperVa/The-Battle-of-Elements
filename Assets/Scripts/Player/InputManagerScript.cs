@@ -142,21 +142,33 @@ public class InputManagerScript : MonoBehaviour
 		{
 			//Debug.Log ("Keyboard test");
 			m_inputs = Vector2.zero;
-			//Honestly this is a pretty bad solution inside a unity script
-			//It will only be here for the first preview to José
-			if (Input.GetKey(KeyCode.A))
+			if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
 			{
 				m_inputs.x = -1;
                 //Debug.Log (m_inputs.x);
             }
-			if (Input.GetKey(KeyCode.D))
+			if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
 			{
 				m_inputs.x = 1;
             }
 
-			if (Input.GetKeyDown(KeyCode.F))
+            if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+            {
+                m_inputs.y = 1;
+            }
+            if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+            {
+                m_inputs.y = -1;
+            }
+
+
+            if (Input.GetKeyDown(KeyCode.F))
 			{
-				m_playerScript.ShootCurrentElement();
+                if (m_timeBetweenShots < m_timeSinceLastShot)
+                {
+                    m_timeSinceLastShot = 0;
+                    m_playerScript.ShootCurrentElement();
+                }
 			}
 			if (Input.GetKeyDown(KeyCode.R))
 			{
@@ -258,7 +270,7 @@ public class InputManagerScript : MonoBehaviour
 
     private void Flip()
     {
-        if (m_inputs.x > 0 && !m_facingRight || m_inputs.x < 0 && m_facingRight)
+        if (m_inputs.x > 0.5f && !m_facingRight || m_inputs.x < -0.5f && m_facingRight)
         {
             m_facingRight = !m_facingRight;
 
