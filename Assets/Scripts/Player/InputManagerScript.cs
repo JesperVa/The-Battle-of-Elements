@@ -275,7 +275,7 @@ public class InputManagerScript : MonoBehaviour
 
     private void Flip()
     {
-        if (m_inputs.x > 0.5f  && !m_facingRight || m_inputs.x < -0.5f && m_facingRight)
+        if (m_inputs.x > 0.5f  && !m_facingRight && !m_playerScript.m_isKnockbacked|| m_inputs.x < -0.5f && m_facingRight && !m_playerScript.m_isKnockbacked)
         {
             m_facingRight = !m_facingRight;
 

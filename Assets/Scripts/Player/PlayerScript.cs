@@ -60,8 +60,8 @@ public class PlayerScript : MonoBehaviour
     public ParticleSystem m_healthPickupEffect;
     public ParticleSystem m_wandEffect;
     #region Serialized variables
-    [SerializeField]
-    private SpriteRenderer m_elementIndicator;
+    //[SerializeField]
+    //private SpriteRenderer m_elementIndicator;
     [SerializeField]
     public int m_speed;
     [SerializeField]
@@ -89,6 +89,8 @@ public class PlayerScript : MonoBehaviour
     public bool m_takingDamage = false;
 
     public bool m_takingPowerUp = false;
+
+    public bool m_isKnockbacked = false;
 
     public float m_fallMultiplier = 3.5f;
 
@@ -126,7 +128,7 @@ public class PlayerScript : MonoBehaviour
 
 
         m_isDead = false;
-        m_elementIndicator.color = Globals.BrownColor;
+        //m_elementIndicator.color = Globals.BrownColor;
 
     }
 
@@ -331,6 +333,7 @@ public class PlayerScript : MonoBehaviour
                     //If the collider isn't the player we have collided with the ground
                     if (collider.gameObject != gameObject)
                     {
+                        m_isKnockbacked = false;
                         return true;
                     }
                 }
@@ -356,6 +359,8 @@ public class PlayerScript : MonoBehaviour
         {
             m_rigidbody.AddForce(transform.right * (m_minKnockbackValue + CalculateKnockBack()), ForceMode2D.Impulse);
         }
+
+        m_isKnockbacked = true;
 
     }
 
