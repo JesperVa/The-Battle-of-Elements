@@ -12,6 +12,7 @@ public class MainMenu : MonoBehaviour
 
     public Transform MainCanvas;
     public Transform OptionsCanvas;
+    public Transform HowToPlayCanvas;
     public Transform SelectLevelCanvas;
     public Transform SelectCharacterCanvas;
     public Button returnBtn;
@@ -39,7 +40,8 @@ public class MainMenu : MonoBehaviour
 		{
 			OptionsCanvas.gameObject.SetActive(false);
 			SelectLevelCanvas.gameObject.SetActive(false);
-			SelectCharacterCanvas.gameObject.SetActive(false); 
+			SelectCharacterCanvas.gameObject.SetActive(false);
+            HowToPlayCanvas.gameObject.SetActive(false);
 		}
 
       
@@ -53,6 +55,18 @@ public class MainMenu : MonoBehaviour
     public void OptionsOn()
     {
         OptionsCanvas.gameObject.SetActive(true);
+        HowToPlayCanvas.gameObject.SetActive(false);
+        MainCanvas.gameObject.SetActive(false);
+        SelectLevelCanvas.gameObject.SetActive(false);
+        SelectCharacterCanvas.gameObject.SetActive(false);
+
+
+    }
+
+    public void HowToPlayOn()
+    {
+        OptionsCanvas.gameObject.SetActive(false);
+        HowToPlayCanvas.gameObject.SetActive(true);
         MainCanvas.gameObject.SetActive(false);
         SelectLevelCanvas.gameObject.SetActive(false);
         SelectCharacterCanvas.gameObject.SetActive(false);
@@ -64,6 +78,7 @@ public class MainMenu : MonoBehaviour
     {
         MainCanvas.gameObject.SetActive(true);
         OptionsCanvas.gameObject.SetActive(false);
+        HowToPlayCanvas.gameObject.SetActive(false);
         SelectLevelCanvas.gameObject.SetActive(false);
         SelectCharacterCanvas.gameObject.SetActive(false);
     }
@@ -74,7 +89,8 @@ public class MainMenu : MonoBehaviour
         MainCanvas.gameObject.SetActive(false);
         SelectLevelCanvas.gameObject.SetActive(false);
         OptionsCanvas.gameObject.SetActive(false);
- 
+        HowToPlayCanvas.gameObject.SetActive(false);
+
     }
 
     public void LevelSelectOn()
