@@ -18,7 +18,7 @@ public class ButtonScript : MonoBehaviour
 	
     public void ChangeBackground()
         {
-            m_backgoundImage.color = new Color32(0, 255, 0, 200);
+            m_backgoundImage.color = new Color32(90, 150, 70, 200);
         }
     
             
@@ -29,6 +29,6 @@ public class ButtonScript : MonoBehaviour
         if (m_toggle.isOn)
             ChangeBackground();
         else
-            m_backgoundImage.color = new Color32(255, 0, 0, 200);
+            m_backgoundImage.color = new Color32(167, 47, 47, 200);
     }
 }
