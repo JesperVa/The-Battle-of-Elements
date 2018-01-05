@@ -715,6 +715,62 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 487990218}
+--- !u!1001 &619094188
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4427390607676428, guid: fb7ca7b2521f1d34ba9f47963fc4d939, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.00999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 4427390607676428, guid: fb7ca7b2521f1d34ba9f47963fc4d939, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -2.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 4427390607676428, guid: fb7ca7b2521f1d34ba9f47963fc4d939, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4427390607676428, guid: fb7ca7b2521f1d34ba9f47963fc4d939, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4427390607676428, guid: fb7ca7b2521f1d34ba9f47963fc4d939, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4427390607676428, guid: fb7ca7b2521f1d34ba9f47963fc4d939, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4427390607676428, guid: fb7ca7b2521f1d34ba9f47963fc4d939, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4427390607676428, guid: fb7ca7b2521f1d34ba9f47963fc4d939, type: 2}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1333058123665270, guid: fb7ca7b2521f1d34ba9f47963fc4d939, type: 2}
+      propertyPath: m_Name
+      value: WinMusic
+      objectReference: {fileID: 0}
+    - target: {fileID: 82584327540673930, guid: fb7ca7b2521f1d34ba9f47963fc4d939,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 82903836092667698, guid: fb7ca7b2521f1d34ba9f47963fc4d939,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 7a9fc0a2b2ad62a4bae36b127e5556ee, type: 3}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: fb7ca7b2521f1d34ba9f47963fc4d939, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &819297179
 GameObject:
   m_ObjectHideFlags: 0
