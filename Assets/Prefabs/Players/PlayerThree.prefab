@@ -900,7 +900,6 @@ MonoBehaviour:
   - {fileID: 82449289629900936}
   m_healthPickupEffect: {fileID: 198147211250809564}
   m_wandEffect: {fileID: 198878930517107116}
-  m_elementIndicator: {fileID: 0}
   m_speed: 20
   m_jumpSpeed: 9
   m_groundRadius: 0.1

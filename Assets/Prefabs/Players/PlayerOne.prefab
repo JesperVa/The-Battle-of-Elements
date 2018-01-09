@@ -884,7 +884,6 @@ MonoBehaviour:
   - {fileID: 82821761295791996}
   m_healthPickupEffect: {fileID: 198258494015294696}
   m_wandEffect: {fileID: 198868763206494818}
-  m_elementIndicator: {fileID: 0}
   m_speed: 20
   m_jumpSpeed: 9
   m_groundRadius: 0.1
@@ -893,7 +892,7 @@ MonoBehaviour:
     m_Bits: 768
   m_elementFactory: {fileID: 114685513988645090, guid: 40d262b014f5da146bc892f337bcffa4,
     type: 2}
-  m_team: 1
+  m_team: 0
   m_shootingTransform: {fileID: 4761120775133296}
   m_isDead: 0
   m_doubleJumped: 0
