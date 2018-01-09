@@ -16,7 +16,7 @@ public class UIGameWonScript : MonoBehaviour
 	{
 		m_teamText = GetComponent<Text> ();
 		m_endGameCanvas.enabled = false;
-		Invoke ("SwitchToEndScreen", 3.5f);
+		Invoke ("SwitchToEndScreen", 4.5f);
 	}
 	
 	// Update is called once per frame
