@@ -57,6 +57,25 @@ public class SceneChanger : SingletonScript<SceneChanger> {
             tempPlayer.SetElements(m_playerdataList[i].ElementArray);
             //tempPlayer.SetTeam(m_playerdataList[i].Team);
             SceneManager.MoveGameObjectToScene(tempPlayer.gameObject, SceneManager.GetSceneByName(aScene));
+
+            if(tempPlayer.GetComponent<InputManagerScript>().m_playerNumber == Globals.PlayerNumber.One)
+            {
+                tempPlayer.SetTeam(Globals.Team.Red);
+            }
+            if (tempPlayer.GetComponent<InputManagerScript>().m_playerNumber == Globals.PlayerNumber.Two)
+            {
+                tempPlayer.SetTeam(Globals.Team.Red);
+            }
+            if (tempPlayer.GetComponent<InputManagerScript>().m_playerNumber == Globals.PlayerNumber.Three)
+            {
+                tempPlayer.SetTeam(Globals.Team.Blue);
+            }
+            if (tempPlayer.GetComponent<InputManagerScript>().m_playerNumber == Globals.PlayerNumber.Four)
+            {
+                tempPlayer.SetTeam(Globals.Team.Blue);
+            }
+
+
             players.Add(tempPlayer);
             //Debug.Log("Test" + i);
             
